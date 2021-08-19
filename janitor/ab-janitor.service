@@ -5,10 +5,10 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-User=pokybuild
-WorkingDirectory=/home/pokybuild
+User=pokybuild3
+WorkingDirectory=/home/pokybuild3
 Type=simple
-ExecStart=/usr/bin/python3 /home/pokybuild/yocto-autobuilder-helper/janitor/ab-janitor
+ExecStart=/usr/bin/python3 /home/pokybuild3/yocto-autobuilder-helper/janitor/ab-janitor
 
 [Install]
 WantedBy=multi-user.target

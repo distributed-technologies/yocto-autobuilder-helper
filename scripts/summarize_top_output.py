@@ -3,7 +3,7 @@
 import os, sys, glob
 
 # constants
-HOME = "/home/pokybuild/yocto-worker/"
+HOME = "/home/pokybuild3/yocto-worker/"
 top_header = 7
 max_cols = 11
 cpu_hoggers = 5
@@ -15,7 +15,7 @@ special_cmds = ["rm", "tar", "qemu"]
 
 # string substitution to make things easier to read
 subs = {
-    "/home/pokybuild/yocto-worker/" : "~/",
+    "/home/pokybuild3/yocto-worker/" : "~/",
     "/build/build/tmp/work/" : "/...WORK_DIR.../"
 }
 
