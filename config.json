@@ -1,44 +1,67 @@
 {
-    "BASE_HOMEDIR" : "/home/pokybuild3",
-    "BASE_SHAREDDIR" : "/home/pokybuild3/repos",
-    "BASE_PUBLISHDIR" : "/home/pokybuild3/publish",
-
-    "BUILD_HISTORY_DIR" : "buildhistory",
-    "BUILD_HISTORY_REPO" : "ssh://git@push.yoctoproject.org/poky-buildhistory",
-    "BUILD_HISTORY_DIRECTPUSH" : ["poky:morty", "poky:pyro", "poky:rocko", "poky:sumo", "poky:thud", "poky:warrior", "poky:zeus", "poky:dunfell", "poky:gatesgarth", "poky:hardknott", "poky:master"],
-    "BUILD_HISTORY_FORKPUSH" : {"poky-contrib:ross/mut" : "poky:master", "poky:master-next" : "poky:master"},
-
-    "BUILDTOOLS_URL_TEMPLOCAL" : "/srv/autobuilder/autobuilder.yoctoproject.org/pub/non-release/20210214-8/buildtools/x86_64-buildtools-extended-nativesdk-standalone-3.2+snapshot-7d38cc8e749aedb8435ee71847e04b353cca541d.sh",
-    "BUILDTOOLS_URL_TEMPLOCAL2" : "https://downloads.yoctoproject.org/releases/yocto/milestones/yocto-3.1_M3/buildtools/x86_64-buildtools-extended-nativesdk-standalone-3.0+snapshot-20200315.sh",
-    "BUILDTOOLS_URL" : "https://downloads.yoctoproject.org/releases/yocto/milestones/yocto-3.4_M2/buildtools/x86_64-buildtools-extended-nativesdk-standalone-3.3%2Bsnapshot-1ad79313a5c3e6a453fbeb44caac5c5bbad46d3c.sh",
-
-    "REPO_STASH_DIR" : "${BASE_HOMEDIR}/git/mirror",
-    "TRASH_DIR" : "${BASE_HOMEDIR}/git/trash",
-
-    "QAMAIL_TO" : "yocto@lists.yoctoproject.org",
-    "QAMAIL_CC" : "qa-build-notification@lists.yoctoproject.org",
-    "WEBPUBLISH_DIR" : "${BASE_SHAREDDIR}/",
-    "WEBPUBLISH_URL" : "https://autobuilder.yocto.io/",
-
-    "BUILDPERF_STATEDIR" : "${BASE_HOMEDIR}/buildperf",
-    "BUILDPERF_RESULTSDIR" : "${BASE_HOMEDIR}/buildperf-results",
-
-    "defaults" : {
-        "NEEDREPOS" : ["poky"],
-        "DISTRO" : "poky",
-        "MACHINE" : "qemux86-64",
-        "SDKMACHINE" : "i686",
-        "PACKAGE_CLASSES" : "package_rpm package_deb package_ipk",
-        "DLDIR" : "DL_DIR = '${BASE_SHAREDDIR}/current_sources'",
-        "SSTATEDIR" : ["SSTATE_DIR ?= '${BASE_SHAREDDIR}/pub/sstate'"],
-        "SSTATEDIR_RELEASE" : ["SSTATE_MIRRORS += 'file://.* file://${BASE_SHAREDDIR}/pub/sstate/PATH'", "SSTATE_DIR ?= '${BASE_PUBLISHDIR}/sstate/@RELEASENUM@'"],
-        "SDKEXTRAS" : ["SSTATE_MIRRORS += '\\", "file://.* http://sstate.yoctoproject.org/dev/@RELEASENUM@PATH;downloadfilename=PATH'", "BB_HASHSERVE = 'auto'"],
-        "BUILDINFO" : false,
-        "BUILDHISTORY" : false,
-        "BUILDINFOVARS" : ["INHERIT += 'image-buildinfo'", "IMAGE_BUILDINFO_VARS:append = ' IMAGE_BASENAME IMAGE_NAME'"],
-        "WRITECONFIG" : true,
-        "SENDERRORS" : true,
-        "extravars" : [
+    "BASE_HOMEDIR": "/home/pokybuild3",
+    "BASE_SHAREDDIR": "/home/pokybuild3/repos",
+    "BASE_PUBLISHDIR": "/home/pokybuild3/publish",
+    "BUILD_HISTORY_DIR": "buildhistory",
+    "BUILD_HISTORY_REPO": "ssh://git@push.yoctoproject.org/poky-buildhistory",
+    "BUILD_HISTORY_DIRECTPUSH": [
+        "poky:morty",
+        "poky:pyro",
+        "poky:rocko",
+        "poky:sumo",
+        "poky:thud",
+        "poky:warrior",
+        "poky:zeus",
+        "poky:dunfell",
+        "poky:gatesgarth",
+        "poky:hardknott",
+        "poky:master"
+    ],
+    "BUILD_HISTORY_FORKPUSH": {
+        "poky-contrib:ross/mut": "poky:master",
+        "poky:master-next": "poky:master"
+    },
+    "BUILDTOOLS_URL_TEMPLOCAL": "/srv/autobuilder/autobuilder.yoctoproject.org/pub/non-release/20210214-8/buildtools/x86_64-buildtools-extended-nativesdk-standalone-3.2+snapshot-7d38cc8e749aedb8435ee71847e04b353cca541d.sh",
+    "BUILDTOOLS_URL_TEMPLOCAL2": "https://downloads.yoctoproject.org/releases/yocto/milestones/yocto-3.1_M3/buildtools/x86_64-buildtools-extended-nativesdk-standalone-3.0+snapshot-20200315.sh",
+    "BUILDTOOLS_URL": "https://downloads.yoctoproject.org/releases/yocto/milestones/yocto-3.4_M2/buildtools/x86_64-buildtools-extended-nativesdk-standalone-3.3%2Bsnapshot-1ad79313a5c3e6a453fbeb44caac5c5bbad46d3c.sh",
+    "REPO_STASH_DIR": "${BASE_HOMEDIR}/git/mirror",
+    "TRASH_DIR": "${BASE_HOMEDIR}/git/trash",
+    "QAMAIL_TO": "yocto@lists.yoctoproject.org",
+    "QAMAIL_CC": "qa-build-notification@lists.yoctoproject.org",
+    "WEBPUBLISH_DIR": "${BASE_SHAREDDIR}/",
+    "WEBPUBLISH_URL": "https://autobuilder.yocto.io/",
+    "BUILDPERF_STATEDIR": "${BASE_HOMEDIR}/buildperf",
+    "BUILDPERF_RESULTSDIR": "${BASE_HOMEDIR}/buildperf-results",
+    "defaults": {
+        "NEEDREPOS": [
+            "poky"
+        ],
+        "DISTRO": "poky",
+        "MACHINE": "qemux86-64",
+        "SDKMACHINE": "i686",
+        "PACKAGE_CLASSES": "package_rpm package_deb package_ipk",
+        "DLDIR": "DL_DIR = '${BASE_SHAREDDIR}/current_sources'",
+        "SSTATEDIR": [
+            "SSTATE_DIR ?= '${BASE_SHAREDDIR}/pub/sstate'"
+        ],
+        "SSTATEDIR_RELEASE": [
+            "SSTATE_MIRRORS += 'file://.* file://${BASE_SHAREDDIR}/pub/sstate/PATH'",
+            "SSTATE_DIR ?= '${BASE_PUBLISHDIR}/sstate/@RELEASENUM@'"
+        ],
+        "SDKEXTRAS": [
+            "SSTATE_MIRRORS += '\\",
+            "file://.* http://sstate.yoctoproject.org/dev/@RELEASENUM@PATH;downloadfilename=PATH'",
+            "BB_HASHSERVE = 'auto'"
+        ],
+        "BUILDINFO": false,
+        "BUILDHISTORY": false,
+        "BUILDINFOVARS": [
+            "INHERIT += 'image-buildinfo'",
+            "IMAGE_BUILDINFO_VARS:append = ' IMAGE_BASENAME IMAGE_NAME'"
+        ],
+        "WRITECONFIG": true,
+        "SENDERRORS": true,
+        "extravars": [
             "QEMU_USE_KVM = 'True'",
             "INHERIT += 'report-error'",
             "PREMIRRORS = ''",
@@ -67,62 +90,66 @@
             "BB_LOG_HOST_STAT_CMDS_FAILURE = 'oe-time-dd-test.sh -l'"
         ]
     },
-    "templates" : {
-        "arch-qemu" : {
-            "BUILDINFO" : true,
-            "BUILDHISTORY" : true,
-            "extravars" : [
+    "templates": {
+        "arch-qemu": {
+            "BUILDINFO": true,
+            "BUILDHISTORY": true,
+            "extravars": [
                 "IMAGE_INSTALL:append = ' ssh-pregen-hostkeys'"
             ],
-            "step1" : {
-                "BBTARGETS" : "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev core-image-sato:do_populate_sdk",
-                "SANITYTARGETS" : "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage core-image-sato:do_testsdk"
+            "step1": {
+                "BBTARGETS": "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev core-image-sato:do_populate_sdk",
+                "SANITYTARGETS": "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage core-image-sato:do_testsdk"
             },
-            "step2" : {
-                "SDKMACHINE" : "x86_64",
-                "BBTARGETS" : "core-image-sato:do_populate_sdk core-image-minimal:do_populate_sdk_ext core-image-sato:do_populate_sdk_ext",
-                "SANITYTARGETS" : "core-image-sato:do_testsdk core-image-minimal:do_testsdkext core-image-sato:do_testsdkext"
+            "step2": {
+                "SDKMACHINE": "x86_64",
+                "BBTARGETS": "core-image-sato:do_populate_sdk core-image-minimal:do_populate_sdk_ext core-image-sato:do_populate_sdk_ext",
+                "SANITYTARGETS": "core-image-sato:do_testsdk core-image-minimal:do_testsdkext core-image-sato:do_testsdkext"
             },
-            "step3" : {
-                "shortname" : "Machine oe-selftest",
-                "BUILDHISTORY" : false,
-                "EXTRACMDS" : ["${SCRIPTSDIR}/checkvnc; DISPLAY=:1 oe-selftest ${HELPERSTMACHTARGS} -j 15"],
-                "ADDLAYER" : ["${BUILDDIR}/../meta-selftest"]
+            "step3": {
+                "shortname": "Machine oe-selftest",
+                "BUILDHISTORY": false,
+                "EXTRACMDS": [
+                    "${SCRIPTSDIR}/checkvnc; DISPLAY=:1 oe-selftest ${HELPERSTMACHTARGS} -j 15"
+                ],
+                "ADDLAYER": [
+                    "${BUILDDIR}/../meta-selftest"
+                ]
             }
         },
-        "altcfg-qemu" : {
-            "DISTRO" : "poky-altcfg",
-            "BUILDINFO" : true,
-            "BUILDHISTORY" : true,
-            "extravars" : [
+        "altcfg-qemu": {
+            "DISTRO": "poky-altcfg",
+            "BUILDINFO": true,
+            "BUILDHISTORY": true,
+            "extravars": [
                 "IMAGE_INSTALL:append = ' ssh-pregen-hostkeys'"
             ],
-            "step1" : {
-                "BBTARGETS" : "core-image-full-cmdline core-image-sato core-image-sato-sdk",
-                "SANITYTARGETS" : "core-image-full-cmdline:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage"
+            "step1": {
+                "BBTARGETS": "core-image-full-cmdline core-image-sato core-image-sato-sdk",
+                "SANITYTARGETS": "core-image-full-cmdline:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage"
             }
         },
-        "ptest-qemu" : {
-            "BUILDINFO" : true,
-            "BBTARGETS" : "core-image-ptest-all",
-            "SANITYTARGETS" : "core-image-ptest-all:do_testimage",
-            "extravars" : [
+        "ptest-qemu": {
+            "BUILDINFO": true,
+            "BBTARGETS": "core-image-ptest-all",
+            "SANITYTARGETS": "core-image-ptest-all:do_testimage",
+            "extravars": [
                 "TEST_SUITES = 'ping ssh ptest'"
             ]
         },
-        "ptest-qemu-fast" : {
-            "BUILDINFO" : true,
-            "BBTARGETS" : "core-image-ptest-fast",
-            "SANITYTARGETS" : "core-image-ptest-fast:do_testimage",
-            "extravars" : [
+        "ptest-qemu-fast": {
+            "BUILDINFO": true,
+            "BBTARGETS": "core-image-ptest-fast",
+            "SANITYTARGETS": "core-image-ptest-fast:do_testimage",
+            "extravars": [
                 "TEST_SUITES = 'ping ssh ptest'"
             ]
         },
-        "ltp-qemu" : {
-            "BUILDINFO" : true,
-            "BBTARGETS" : "core-image-sato",
-            "SANITYTARGETS" : "core-image-sato:do_testimage",
-            "extravars" : [
+        "ltp-qemu": {
+            "BUILDINFO": true,
+            "BBTARGETS": "core-image-sato",
+            "SANITYTARGETS": "core-image-sato:do_testimage",
+            "extravars": [
                 "IMAGE_INSTALL:append = ' ltp'",
                 "TEST_SUITES = 'ping ssh ltp ltp_compliance'",
                 "IMAGE_OVERHEAD_FACTOR = '1.0'",
@@ -130,43 +157,49 @@
                 "QB_MEM:forcevariable = '-m 1024'"
             ]
         },
-        "arch-hw" : {
-            "BUILDINFO" : true,
-            "step1" : {
-                "BBTARGETS" : "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev core-image-ptest-all core-image-sato:do_populate_sdk",
-                "SANITYTARGETS" : "core-image-sato:do_testsdk"
+        "arch-hw": {
+            "BUILDINFO": true,
+            "step1": {
+                "BBTARGETS": "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev core-image-ptest-all core-image-sato:do_populate_sdk",
+                "SANITYTARGETS": "core-image-sato:do_testsdk"
             }
         },
-        "arch-hw-qemu" : {
-            "BUILDINFO" : true,
-            "step1" : {
-                "SDKMACHINE" : "x86_64",
-                "BBTARGETS" : "core-image-minimal core-image-sato core-image-sato-sdk core-image-sato:do_populate_sdk core-image-sato:do_populate_sdk_ext",
-                "SANITYTARGETS" : "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage core-image-sato:do_testsdk core-image-sato:do_testsdkext"
+        "arch-hw-qemu": {
+            "BUILDINFO": true,
+            "step1": {
+                "SDKMACHINE": "x86_64",
+                "BBTARGETS": "core-image-minimal core-image-sato core-image-sato-sdk core-image-sato:do_populate_sdk core-image-sato:do_populate_sdk_ext",
+                "SANITYTARGETS": "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage core-image-sato:do_testsdk core-image-sato:do_testsdkext"
             },
-            "step2" : {
-                "shortname" : "Machine oe-selftest",
-                "BUILDHISTORY" : false,
-                "EXTRACMDS" : ["${SCRIPTSDIR}/checkvnc; DISPLAY=:1 oe-selftest -a -t machine -j 15"]
+            "step2": {
+                "shortname": "Machine oe-selftest",
+                "BUILDHISTORY": false,
+                "EXTRACMDS": [
+                    "${SCRIPTSDIR}/checkvnc; DISPLAY=:1 oe-selftest -a -t machine -j 15"
+                ]
             }
         },
-        "altcfg-hw" : {
-            "DISTRO" : "poky-altcfg",
-            "BUILDINFO" : true,
-            "step1" : {
-                "BBTARGETS" : "core-image-full-cmdline core-image-sato core-image-sato-sdk"
+        "altcfg-hw": {
+            "DISTRO": "poky-altcfg",
+            "BUILDINFO": true,
+            "step1": {
+                "BBTARGETS": "core-image-full-cmdline core-image-sato core-image-sato-sdk"
             }
         },
-        "buildperf" : {
-            "MACHINE" : "qemux86",
-            "SDKMACHINE" : "x86_64",
-            "SSTATEDIR" : ["SSTATE_DIR ?= '${HELPERBUILDDIR}/sstate'"],
-            "SSTATEDIR_RELEASE" : ["SSTATE_DIR ?= '${HELPERBUILDDIR}/sstate'"],
-            "PACKAGE_CLASSES" : "package_rpm",
-            "EXTRAPLAINCMDS" : [
+        "buildperf": {
+            "MACHINE": "qemux86",
+            "SDKMACHINE": "x86_64",
+            "SSTATEDIR": [
+                "SSTATE_DIR ?= '${HELPERBUILDDIR}/sstate'"
+            ],
+            "SSTATEDIR_RELEASE": [
+                "SSTATE_DIR ?= '${HELPERBUILDDIR}/sstate'"
+            ],
+            "PACKAGE_CLASSES": "package_rpm",
+            "EXTRAPLAINCMDS": [
                 "${SCRIPTSDIR}/build-perf-test-wrapper -r ${BUILDPERF_RESULTSDIR} -E yocto-perf@lists.yoctoproject.org -d ${BUILDPERF_STATEDIR}/downloads -w ${BASE_HOMEDIR}/build-perf-test -p ${HELPERRESULTSDIR}/${HELPERTARGET} -R ${HELPERREPONAME} -b ${HELPERBRANCHNAME} --push git@push.yoctoproject.org:yocto-buildstats"
             ],
-            "extravars" : [
+            "extravars": [
                 "BB_NUMBER_THREADS = '24'",
                 "PARALLEL_MAKE = '-j 24'",
                 "DL_DIR = '${BUILDPERF_STATEDIR}/downloads'",
@@ -175,161 +208,190 @@
                 "BB_LOG_HOST_STAT_CMDS = ''"
             ]
         },
-        "selftest" : {
-            "MACHINE" : "qemux86-64",
-            "SDKMACHINE" : "x86_64",
-            "PACKAGE_CLASSES" : "package_rpm",
-            "extravars" : [
+        "selftest": {
+            "MACHINE": "qemux86-64",
+            "SDKMACHINE": "x86_64",
+            "PACKAGE_CLASSES": "package_rpm",
+            "extravars": [
                 "RPM_GPG_SIGN_CHUNK = '1'",
                 "IMAGE_INSTALL:append = ' ssh-pregen-hostkeys'"
             ],
-            "step1" : {
-                "shortname" : "Bitbake Selftest",
-                "EXTRACMDS" : ["bitbake-selftest"]
+            "step1": {
+                "shortname": "Bitbake Selftest",
+                "EXTRACMDS": [
+                    "bitbake-selftest"
+                ]
             },
-            "step2" : {
-                "shortname" : "OE Selftest",
-                "EXTRACMDS" : ["${SCRIPTSDIR}/checkvnc; OEQA_DEBUGGING_SAVED_OUTPUT=${BASE_SHAREDDIR}/pub/repro-fail/ DISPLAY=:1 oe-selftest --skip-tests distrodata.Distrodata.test_checkpkg buildoptions.SourceMirroring.test_yocto_source_mirror devtool.DevtoolAddTests.test_devtool_add_npm recipetool.RecipetoolTests.test_recipetool_create_npm reproducible -T machine -T toolchain-user -T toolchain-system -j 15"],
-                "ADDLAYER" : ["${BUILDDIR}/../meta-selftest"]
+            "step2": {
+                "shortname": "OE Selftest",
+                "EXTRACMDS": [
+                    "${SCRIPTSDIR}/checkvnc; OEQA_DEBUGGING_SAVED_OUTPUT=${BASE_SHAREDDIR}/pub/repro-fail/ DISPLAY=:1 oe-selftest --skip-tests distrodata.Distrodata.test_checkpkg buildoptions.SourceMirroring.test_yocto_source_mirror devtool.DevtoolAddTests.test_devtool_add_npm recipetool.RecipetoolTests.test_recipetool_create_npm reproducible -T machine -T toolchain-user -T toolchain-system -j 15"
+                ],
+                "ADDLAYER": [
+                    "${BUILDDIR}/../meta-selftest"
+                ]
             },
-            "step3" : {
-                "shortname" : "Python Linter Report",
-                "EXTRACMDS" : ["if [ `which oe-pylint` ]; then mkdir -p ${HELPERRESULTSDIR}/${HELPERTARGET}; oe-pylint > ${HELPERRESULTSDIR}/${HELPERTARGET}/pylint.log || true; fi"]
+            "step3": {
+                "shortname": "Python Linter Report",
+                "EXTRACMDS": [
+                    "if [ `which oe-pylint` ]; then mkdir -p ${HELPERRESULTSDIR}/${HELPERTARGET}; oe-pylint > ${HELPERRESULTSDIR}/${HELPERTARGET}/pylint.log || true; fi"
+                ]
             }
         },
-        "reproducible" : {
-            "MACHINE" : "qemux86-64",
-            "SDKMACHINE" : "x86_64",
-            "step1" : {
-                "shortname" : "Reproducible Selftest",
-                "EXTRACMDS" : ["${SCRIPTSDIR}/checkvnc; OEQA_DEBUGGING_SAVED_OUTPUT=${BASE_SHAREDDIR}/pub/repro-fail/ DISPLAY=:1 oe-selftest -r reproducible"],
-                "ADDLAYER" : ["${BUILDDIR}/../meta-selftest"]
-
+        "reproducible": {
+            "MACHINE": "qemux86-64",
+            "SDKMACHINE": "x86_64",
+            "step1": {
+                "shortname": "Reproducible Selftest",
+                "EXTRACMDS": [
+                    "${SCRIPTSDIR}/checkvnc; OEQA_DEBUGGING_SAVED_OUTPUT=${BASE_SHAREDDIR}/pub/repro-fail/ DISPLAY=:1 oe-selftest -r reproducible"
+                ],
+                "ADDLAYER": [
+                    "${BUILDDIR}/../meta-selftest"
+                ]
             }
         },
-        "trigger-build" : {
-            "SDKMACHINE" : "x86_64",
-            "MACHINE" : "qemux86",
-            "step1" : {
-                "shortname" : "Sources pre-fetching",
-                "BBTARGETS" : "universe -c fetch -k",
-                "ADDLAYER" : ["${BUILDDIR}/../meta-selftest"],
-                "extravars" : [
+        "trigger-build": {
+            "SDKMACHINE": "x86_64",
+            "MACHINE": "qemux86",
+            "step1": {
+                "shortname": "Sources pre-fetching",
+                "BBTARGETS": "universe -c fetch -k",
+                "ADDLAYER": [
+                    "${BUILDDIR}/../meta-selftest"
+                ],
+                "extravars": [
                     "SOURCE_MIRROR_FETCH = '1'"
                 ]
             }
         },
-        "trigger-build-posttrigger" : {
-            "SDKMACHINE" : "x86_64",
-            "MACHINE" : "qemux86",
-            "step1" : {
-                "shortname" : "Source Mirror Selftest",
-                "EXTRACMDS" : ["${SCRIPTSDIR}/checkvnc; DISPLAY=:1 oe-selftest -r buildoptions.SourceMirroring.test_yocto_source_mirror"],
-                "ADDLAYER" : ["${BUILDDIR}/../meta-selftest"]
+        "trigger-build-posttrigger": {
+            "SDKMACHINE": "x86_64",
+            "MACHINE": "qemux86",
+            "step1": {
+                "shortname": "Source Mirror Selftest",
+                "EXTRACMDS": [
+                    "${SCRIPTSDIR}/checkvnc; DISPLAY=:1 oe-selftest -r buildoptions.SourceMirroring.test_yocto_source_mirror"
+                ],
+                "ADDLAYER": [
+                    "${BUILDDIR}/../meta-selftest"
+                ]
             }
         }
-
     },
-    "overrides" : {
-        "mukube" : { 
-            "NEEDREPOS" : ["mukube", "meta-virtualization", "poky", "meta-openembedded"],
-            "MACHINE" : "genericx86-64",
-            "DISTRO" : "None",
-	    "BBTARGETS" : "mukube-minimal",
-	    "ADDLAYER" : [
-		"${BUILDDIR}/../mukube/meta-k8s-setup",
-		"${BUILDDIR}/../poky/meta-poky",
-		"${BUILDDIR}/../poky/yocto-bsp"
-	    ]
+    "overrides": {
+        "mukube": {
+            "NEEDREPOS": [
+                "mukube",
+                "meta-virtualization",
+                "poky",
+                "meta-openembedded"
+            ],
+            "MACHINE": "genericx86-64",
+            "DISTRO": "None",
+            "BBTARGETS": "mukube-minimal",
+            "ADDLAYER": [
+                "${BUILDDIR}/../poky/meta-poky",
+                "${BUILDDIR}/../poky/yocto-bsp",
+                "${BUILDDIR}/../mukube/meta-k8s-setup"
+            ]
         },
-        "qemuarm-oecore" : {
-            "NEEDREPOS" : ["oecore", "bitbake"],
-            "MACHINE" : "qemuarm",
-            "DISTRO" : "None",
-            "extravars" : [
+        "qemuarm-oecore": {
+            "NEEDREPOS": [
+                "oecore",
+                "bitbake"
+            ],
+            "MACHINE": "qemuarm",
+            "DISTRO": "None",
+            "extravars": [
                 "INHERIT += 'uninative'",
                 "require conf/distro/include/yocto-uninative.inc",
                 "BB_SIGNATURE_HANDLER = 'OEEquivHash'"
             ],
-            "step1" : {
-                "BBTARGETS" : "core-image-sato",
-                "SANITYTARGETS" : "core-image-sato:do_testimage"
+            "step1": {
+                "BBTARGETS": "core-image-sato",
+                "SANITYTARGETS": "core-image-sato:do_testimage"
             },
-            "step2" : {
-                "BBTARGETS" : "core-image-sato:do_populate_sdk",
-                "SANITYTARGETS" : "core-image-sato:do_testsdk"
+            "step2": {
+                "BBTARGETS": "core-image-sato:do_populate_sdk",
+                "SANITYTARGETS": "core-image-sato:do_testsdk"
             },
-            "step3" : {
-                "SDKMACHINE" : "x86_64",
-                "BBTARGETS" : "core-image-sato:do_populate_sdk core-image-minimal:do_populate_sdk_ext",
-                "SANITYTARGETS" : "core-image-sato:do_testsdk"
+            "step3": {
+                "SDKMACHINE": "x86_64",
+                "BBTARGETS": "core-image-sato:do_populate_sdk core-image-minimal:do_populate_sdk_ext",
+                "SANITYTARGETS": "core-image-sato:do_testsdk"
             }
         },
-        "qemuarm" : {
-            "MACHINE" : "qemuarm",
-            "TEMPLATE" : "arch-qemu"
+        "qemuarm": {
+            "MACHINE": "qemuarm",
+            "TEMPLATE": "arch-qemu"
         },
-        "qemuarm-armhost" : {
-            "MACHINE" : "qemuarm",
-            "BUILDINFO" : true,
-            "step1" : {
-                "SDKMACHINE" : "aarch64",
-                "BBTARGETS" : "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev core-image-sato:do_populate_sdk core-image-minimal:do_populate_sdk_ext core-image-sato:do_populate_sdk_ext",
-                "SANITYTARGETS" : "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage core-image-sato:do_testsdk  core-image-minimal:do_testsdkext core-image-sato:do_testsdkext"
+        "qemuarm-armhost": {
+            "MACHINE": "qemuarm",
+            "BUILDINFO": true,
+            "step1": {
+                "SDKMACHINE": "aarch64",
+                "BBTARGETS": "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev core-image-sato:do_populate_sdk core-image-minimal:do_populate_sdk_ext core-image-sato:do_populate_sdk_ext",
+                "SANITYTARGETS": "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage core-image-sato:do_testsdk  core-image-minimal:do_testsdkext core-image-sato:do_testsdkext"
             }
         },
-        "qemuarm-alt" : {
-            "MACHINE" : "qemuarm",
-            "TEMPLATE" : "altcfg-qemu"
+        "qemuarm-alt": {
+            "MACHINE": "qemuarm",
+            "TEMPLATE": "altcfg-qemu"
         },
-        "beaglebone" : {
-            "MACHINE" : "beaglebone-yocto",
-            "TEMPLATE" : "arch-hw",
-            "step2" : {
-                "SDKMACHINE" : "x86_64",
-                "BBTARGETS" : "core-image-minimal:do_populate_sdk_ext core-image-sato:do_populate_sdk"
+        "beaglebone": {
+            "MACHINE": "beaglebone-yocto",
+            "TEMPLATE": "arch-hw",
+            "step2": {
+                "SDKMACHINE": "x86_64",
+                "BBTARGETS": "core-image-minimal:do_populate_sdk_ext core-image-sato:do_populate_sdk"
             }
         },
-        "beaglebone-alt" : {
-            "MACHINE" : "beaglebone-yocto",
-            "TEMPLATE" : "altcfg-hw"
+        "beaglebone-alt": {
+            "MACHINE": "beaglebone-yocto",
+            "TEMPLATE": "altcfg-hw"
         },
-        "qemuarm64" : {
-            "MACHINE" : "qemuarm64",
-            "TEMPLATE" : "arch-qemu"
+        "qemuarm64": {
+            "MACHINE": "qemuarm64",
+            "TEMPLATE": "arch-qemu"
         },
-        "qemuarm64-armhost" : {
-            "MACHINE" : "qemuarm64",
-            "BUILDINFO" : true,
-            "step1" : {
-                "shortname" : "Sources pre-fetching (arm specific)",
-                "BBTARGETS" : "universe -c fetch -k",
-                "ADDLAYER" : ["${BUILDDIR}/../meta-selftest"],
-                "extravars" : [
+        "qemuarm64-armhost": {
+            "MACHINE": "qemuarm64",
+            "BUILDINFO": true,
+            "step1": {
+                "shortname": "Sources pre-fetching (arm specific)",
+                "BBTARGETS": "universe -c fetch -k",
+                "ADDLAYER": [
+                    "${BUILDDIR}/../meta-selftest"
+                ],
+                "extravars": [
                     "SOURCE_MIRROR_FETCH = '1'"
                 ]
             },
-            "step2" : {
-                "SDKMACHINE" : "aarch64",
-                "BBTARGETS" : "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev core-image-sato:do_populate_sdk core-image-minimal:do_populate_sdk_ext core-image-sato:do_populate_sdk_ext",
-                "SANITYTARGETS" : "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage core-image-sato:do_testsdk  core-image-minimal:do_testsdkext core-image-sato:do_testsdkext"
+            "step2": {
+                "SDKMACHINE": "aarch64",
+                "BBTARGETS": "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev core-image-sato:do_populate_sdk core-image-minimal:do_populate_sdk_ext core-image-sato:do_populate_sdk_ext",
+                "SANITYTARGETS": "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage core-image-sato:do_testsdk  core-image-minimal:do_testsdkext core-image-sato:do_testsdkext"
             }
         },
-        "qemuarm64-ptest" : {
-            "MACHINE" : "qemuarm64",
-            "TEMPLATE" : "ptest-qemu"
+        "qemuarm64-ptest": {
+            "MACHINE": "qemuarm64",
+            "TEMPLATE": "ptest-qemu"
         },
-        "qemuarm64-ptest-fast" : {
-            "MACHINE" : "qemuarm64",
-            "TEMPLATE" : "ptest-qemu-fast"
+        "qemuarm64-ptest-fast": {
+            "MACHINE": "qemuarm64",
+            "TEMPLATE": "ptest-qemu-fast"
         },
-        "qemuarm64-ltp" : {
-            "MACHINE" : "qemuarm64",
-            "TEMPLATE" : "ltp-qemu"
+        "qemuarm64-ltp": {
+            "MACHINE": "qemuarm64",
+            "TEMPLATE": "ltp-qemu"
         },
-        "meta-arm" : {
-            "NEEDREPOS" : ["poky", "meta-arm"],
-            "ADDLAYER" : [
+        "meta-arm": {
+            "NEEDREPOS": [
+                "poky",
+                "meta-arm"
+            ],
+            "ADDLAYER": [
                 "${BUILDDIR}/../meta-arm/meta-arm-toolchain",
                 "${BUILDDIR}/../meta-arm/meta-arm",
                 "${BUILDDIR}/../meta-arm/meta-arm-bsp"
@@ -337,257 +399,274 @@
             "step1": {
                 "MACHINE": "n1sdp",
                 "BBTARGETS": "core-image-minimal core-image-sato core-image-sato:do_populate_sdk",
-                "SANITYTARGETS" : "core-image-sato:do_testsdk"
-                },
+                "SANITYTARGETS": "core-image-sato:do_testsdk"
+            },
             "step2": {
                 "MACHINE": "juno",
                 "BBTARGETS": "core-image-minimal core-image-sato core-image-sato:do_populate_sdk",
-                "SANITYTARGETS" : "core-image-sato:do_testsdk"
+                "SANITYTARGETS": "core-image-sato:do_testsdk"
             }
         },
-        "meta-agl-core" : {
-            "NEEDREPOS" : ["poky", "meta-agl"],
-            "ADDLAYER" : [
+        "meta-agl-core": {
+            "NEEDREPOS": [
+                "poky",
+                "meta-agl"
+            ],
+            "ADDLAYER": [
                 "${BUILDDIR}/../meta-agl/meta-agl-core"
             ],
-            "DISTRO" : "poky-agl",
-            "BUILDINFO" : true,
-            "BUILDHISTORY" : true,
-            "PACKAGE_CLASSES" : "package_rpm",
-            "extravars" : [
+            "DISTRO": "poky-agl",
+            "BUILDINFO": true,
+            "BUILDHISTORY": true,
+            "PACKAGE_CLASSES": "package_rpm",
+            "extravars": [
                 "AGL_FEATURES = 'aglcore'"
             ],
-            "step1" : {
+            "step1": {
                 "MACHINE": "qemux86-64",
                 "BBTARGETS": "agl-image-core-autobuilder"
             }
         },
-        "meta-aws" : {
-            "NEEDREPOS" : ["poky", "meta-openembedded", "meta-aws"],
-            "ADDLAYER" : [
+        "meta-aws": {
+            "NEEDREPOS": [
+                "poky",
+                "meta-openembedded",
+                "meta-aws"
+            ],
+            "ADDLAYER": [
                 "${BUILDDIR}/../meta-openembedded/meta-oe",
                 "${BUILDDIR}/../meta-openembedded/meta-python",
                 "${BUILDDIR}/../meta-openembedded/meta-networking",
                 "${BUILDDIR}/../meta-aws"
             ],
-            "step1" : {
+            "step1": {
                 "MACHINE": "qemux86-64",
                 "BBTARGETS": "aws-iot-device-sdk-cpp-v2"
             },
-            "step2" : {
+            "step2": {
                 "MACHINE": "qemuarm64",
                 "BBTARGETS": "aws-iot-device-sdk-cpp-v2"
             }
         },
-       "bringup" : {
-            "BUILDINFO" : true,
-            "SSTATEDIR" : ["SSTATE_DIR ?= '${HELPERBUILDDIR}/sstate'"],
-            "MACHINE" : "qemuarm64",
-             "step1" : {
-                 "BBTARGETS" : "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev core-image-sato:do_populate_sdk",
-                 "SANITYTARGETS" : "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage core-image-sato:do_testsdk"
-             },
-            "step2" : {
-                "MACHINE" : "qemux86-64",
-                "BBTARGETS" : "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev core-image-ptest-all core-image-sato:do_populate_sdk",
-                "SANITYTARGETS" : "core-image-sato:do_testsdk"
-
+        "bringup": {
+            "BUILDINFO": true,
+            "SSTATEDIR": [
+                "SSTATE_DIR ?= '${HELPERBUILDDIR}/sstate'"
+            ],
+            "MACHINE": "qemuarm64",
+            "step1": {
+                "BBTARGETS": "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev core-image-sato:do_populate_sdk",
+                "SANITYTARGETS": "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage core-image-sato:do_testsdk"
             },
-            "step3" : {
-                 "SDKMACHINE" : "x86_64",
-                 "BBTARGETS" : "core-image-sato:do_populate_sdk core-image-minimal:do_populate_sdk_ext core-image-sato:do_populate_sdk_ext",
-                 "SANITYTARGETS" : "core-image-sato:do_testsdk core-image-minimal:do_testsdkext core-image-sato:do_testsdkext"
-             },
-            "step4" : {
-                "MACHINE" : "qemux86-64",
-                "SDKMACHINE" : "x86_64",
-                "BBTARGETS" : "core-image-minimal:do_populate_sdk_ext core-image-sato:do_populate_sdk"
+            "step2": {
+                "MACHINE": "qemux86-64",
+                "BBTARGETS": "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev core-image-ptest-all core-image-sato:do_populate_sdk",
+                "SANITYTARGETS": "core-image-sato:do_testsdk"
             },
-            "step5" : {
-                "BUILDINFO" : false,
-                "MACHINE" : "qemux86-64",
-                "SDKMACHINE" : "x86_64",
-                "PACKAGE_CLASSES" : "package_rpm",
-                "extravars" : [
+            "step3": {
+                "SDKMACHINE": "x86_64",
+                "BBTARGETS": "core-image-sato:do_populate_sdk core-image-minimal:do_populate_sdk_ext core-image-sato:do_populate_sdk_ext",
+                "SANITYTARGETS": "core-image-sato:do_testsdk core-image-minimal:do_testsdkext core-image-sato:do_testsdkext"
+            },
+            "step4": {
+                "MACHINE": "qemux86-64",
+                "SDKMACHINE": "x86_64",
+                "BBTARGETS": "core-image-minimal:do_populate_sdk_ext core-image-sato:do_populate_sdk"
+            },
+            "step5": {
+                "BUILDINFO": false,
+                "MACHINE": "qemux86-64",
+                "SDKMACHINE": "x86_64",
+                "PACKAGE_CLASSES": "package_rpm",
+                "extravars": [
                     "RPM_GPG_SIGN_CHUNK = '1'"
                 ],
-                "EXTRACMDS" : ["${SCRIPTSDIR}/checkvnc; DISPLAY=:1 oe-selftest --skip-tests distrodata.Distrodata.test_checkpkg buildoptions.SourceMirroring.test_yocto_source_mirror devtool.DevtoolAddTests.test_devtool_add_npm recipetool.RecipetoolTests.test_recipetool_create_npm -T machine -T toolchain-user -T toolchain-system -j 15"],
-                "ADDLAYER" : ["${BUILDDIR}/../meta-selftest"]
-            }
-        },
-        "qemumips" : {
-            "MACHINE" : "qemumips",
-            "TEMPLATE" : "arch-qemu"
-        },
-        "qemumips-alt" : {
-            "MACHINE" : "qemumips",
-            "TEMPLATE" : "altcfg-qemu"
-        },
-        "edgerouter" : {
-            "MACHINE" : "edgerouter",
-            "TEMPLATE" : "arch-hw"
-        },
-        "edgerouter-alt" : {
-            "MACHINE" : "edgerouter",
-            "TEMPLATE" : "altcfg-hw"
-        },
-        "qemumips64" : {
-            "MACHINE" : "qemumips64",
-            "TEMPLATE" : "arch-qemu"
-        },
-        "qemuppc" : {
-            "MACHINE" : "qemuppc",
-            "TEMPLATE" : "arch-qemu"
-        },
-        "qemuppc-alt" : {
-            "MACHINE" : "qemuppc",
-            "TEMPLATE" : "altcfg-qemu"
-        },
-        "qemux86" : {
-            "MACHINE" : "qemux86",
-            "TEMPLATE" : "arch-qemu",
-            "step1" : {
-                "extravars" : [
-                     "IMAGE_FSTYPES:append = ' wic wic.bmap'"
+                "EXTRACMDS": [
+                    "${SCRIPTSDIR}/checkvnc; DISPLAY=:1 oe-selftest --skip-tests distrodata.Distrodata.test_checkpkg buildoptions.SourceMirroring.test_yocto_source_mirror devtool.DevtoolAddTests.test_devtool_add_npm recipetool.RecipetoolTests.test_recipetool_create_npm -T machine -T toolchain-user -T toolchain-system -j 15"
+                ],
+                "ADDLAYER": [
+                    "${BUILDDIR}/../meta-selftest"
                 ]
             }
         },
-        "qemux86-alt" : {
-            "MACHINE" : "qemux86",
-            "TEMPLATE" : "altcfg-qemu"
+        "qemumips": {
+            "MACHINE": "qemumips",
+            "TEMPLATE": "arch-qemu"
         },
-        "genericx86" : {
-            "MACHINE" : "genericx86",
-            "TEMPLATE" : "arch-hw",
-            "step1" : {
-                "extravars" : [
-                     "IMAGE_FSTYPES:append = ' wic wic.bmap'"
+        "qemumips-alt": {
+            "MACHINE": "qemumips",
+            "TEMPLATE": "altcfg-qemu"
+        },
+        "edgerouter": {
+            "MACHINE": "edgerouter",
+            "TEMPLATE": "arch-hw"
+        },
+        "edgerouter-alt": {
+            "MACHINE": "edgerouter",
+            "TEMPLATE": "altcfg-hw"
+        },
+        "qemumips64": {
+            "MACHINE": "qemumips64",
+            "TEMPLATE": "arch-qemu"
+        },
+        "qemuppc": {
+            "MACHINE": "qemuppc",
+            "TEMPLATE": "arch-qemu"
+        },
+        "qemuppc-alt": {
+            "MACHINE": "qemuppc",
+            "TEMPLATE": "altcfg-qemu"
+        },
+        "qemux86": {
+            "MACHINE": "qemux86",
+            "TEMPLATE": "arch-qemu",
+            "step1": {
+                "extravars": [
+                    "IMAGE_FSTYPES:append = ' wic wic.bmap'"
                 ]
             }
         },
-        "genericx86-alt" : {
-            "MACHINE" : "genericx86",
-            "TEMPLATE" : "altcfg-hw"
+        "qemux86-alt": {
+            "MACHINE": "qemux86",
+            "TEMPLATE": "altcfg-qemu"
         },
-        "qemux86-64" : {
-            "MACHINE" : "qemux86-64",
-            "TEMPLATE" : "arch-qemu",
-            "step1" : {
-                "extravars" : [
-                     "IMAGE_FSTYPES:append = ' wic wic.bmap'"
+        "genericx86": {
+            "MACHINE": "genericx86",
+            "TEMPLATE": "arch-hw",
+            "step1": {
+                "extravars": [
+                    "IMAGE_FSTYPES:append = ' wic wic.bmap'"
                 ]
             }
         },
-        "qemux86-64-alt" : {
-            "MACHINE" : "qemux86-64",
-            "TEMPLATE" : "altcfg-qemu"
+        "genericx86-alt": {
+            "MACHINE": "genericx86",
+            "TEMPLATE": "altcfg-hw"
         },
-        "genericx86-64" : {
-            "MACHINE" : "genericx86-64",
-            "TEMPLATE" : "arch-hw",
-            "step1" : {
-                "extravars" : [
-                     "IMAGE_FSTYPES:append = ' wic wic.bmap'"
+        "qemux86-64": {
+            "MACHINE": "qemux86-64",
+            "TEMPLATE": "arch-qemu",
+            "step1": {
+                "extravars": [
+                    "IMAGE_FSTYPES:append = ' wic wic.bmap'"
                 ]
             }
         },
-        "meta-intel" : {
-            "NEEDREPOS" : ["poky", "meta-intel"],
-            "ADDLAYER" : ["${BUILDDIR}/../meta-intel"],
-            "MACHINE" : "intel-corei7-64",
-            "TEMPLATE" : "arch-hw"
+        "qemux86-64-alt": {
+            "MACHINE": "qemux86-64",
+            "TEMPLATE": "altcfg-qemu"
         },
-        "genericx86-64-alt" : {
-            "MACHINE" : "genericx86-64",
-            "TEMPLATE" : "altcfg-hw"
+        "genericx86-64": {
+            "MACHINE": "genericx86-64",
+            "TEMPLATE": "arch-hw",
+            "step1": {
+                "extravars": [
+                    "IMAGE_FSTYPES:append = ' wic wic.bmap'"
+                ]
+            }
         },
-        "qemux86-world" : {
-            "MACHINE" : "qemux86-64",
-            "SDKMACHINE" : "x86_64",
-            "BBTARGETS" : "world",
-            "extravars" : [
+        "meta-intel": {
+            "NEEDREPOS": [
+                "poky",
+                "meta-intel"
+            ],
+            "ADDLAYER": [
+                "${BUILDDIR}/../meta-intel"
+            ],
+            "MACHINE": "intel-corei7-64",
+            "TEMPLATE": "arch-hw"
+        },
+        "genericx86-64-alt": {
+            "MACHINE": "genericx86-64",
+            "TEMPLATE": "altcfg-hw"
+        },
+        "qemux86-world": {
+            "MACHINE": "qemux86-64",
+            "SDKMACHINE": "x86_64",
+            "BBTARGETS": "world",
+            "extravars": [
                 "require conf/multilib.conf",
                 "MULTILIBS = 'multilib:lib32'",
                 "DEFAULTTUNE:virtclass-multilib-lib32 = 'x86'"
             ]
         },
-        "qemux86-world-alt" : {
-            "MACHINE" : "qemux86-64",
-            "SDKMACHINE" : "x86_64",
-            "DISTRO" : "poky-altcfg",
-            "BBTARGETS" : "world",
-            "extravars" : [
+        "qemux86-world-alt": {
+            "MACHINE": "qemux86-64",
+            "SDKMACHINE": "x86_64",
+            "DISTRO": "poky-altcfg",
+            "BBTARGETS": "world",
+            "extravars": [
                 "DISTRO_FEATURES:append = ' api-documentation'",
                 "require conf/multilib.conf",
                 "MULTILIBS = 'multilib:lib32'",
                 "DEFAULTTUNE:virtclass-multilib-lib32 = 'x86'"
             ]
         },
-        "qemux86-64-x32" : {
-            "MACHINE" : "qemux86-64",
-            "SDKMACHINE" : "x86_64",
-            "BUILDINFO" : true,
-            "extravars" : [
+        "qemux86-64-x32": {
+            "MACHINE": "qemux86-64",
+            "SDKMACHINE": "x86_64",
+            "BUILDINFO": true,
+            "extravars": [
                 "DEFAULTTUNE = 'x86-64-x32'",
                 "baselib = \"${@d.getVar('BASE_LIB_tune-' + (d.getVar('DEFAULTTUNE', True) or 'INVALID'), True) or 'lib'}\""
             ],
-            "step1" : {
-                "BBTARGETS" : "core-image-minimal core-image-sato",
-                "SANITYTARGETS" : "core-image-minimal:do_testimage"
+            "step1": {
+                "BBTARGETS": "core-image-minimal core-image-sato",
+                "SANITYTARGETS": "core-image-minimal:do_testimage"
             },
-            "step2" : {
-                "SANITYTARGETS" : "core-image-sato:do_testimage",
-                "extravars" : [
+            "step2": {
+                "SANITYTARGETS": "core-image-sato:do_testimage",
+                "extravars": [
                     "TEST_SUITES:append = ' x32lib'"
                 ]
             }
         },
-        "qemux86-64-ptest" : {
-            "MACHINE" : "qemux86-64",
-            "TEMPLATE" : "ptest-qemu"
+        "qemux86-64-ptest": {
+            "MACHINE": "qemux86-64",
+            "TEMPLATE": "ptest-qemu"
         },
-        "qemux86-64-ptest-fast" : {
-            "MACHINE" : "qemux86-64",
-            "TEMPLATE" : "ptest-qemu-fast"
+        "qemux86-64-ptest-fast": {
+            "MACHINE": "qemux86-64",
+            "TEMPLATE": "ptest-qemu-fast"
         },
-        "qemux86-64-ltp" : {
-            "MACHINE" : "qemux86-64",
-            "TEMPLATE" : "ltp-qemu"
+        "qemux86-64-ltp": {
+            "MACHINE": "qemux86-64",
+            "TEMPLATE": "ltp-qemu"
         },
-        "multilib" : {
-            "MACHINE" : "qemux86-64",
-            "SDKMACHINE" : "x86_64",
-            "step1" : {
-                "shortname" : "x86-64 lib32-img rpm",
-                "description" : "qemux86-64 32bit multilib image with rpm",
-                "BBTARGETS" : "lib32-core-image-minimal",
-                "SANITYTARGETS" : "lib32-core-image-minimal:do_testimage",
-                "extravars" : [
+        "multilib": {
+            "MACHINE": "qemux86-64",
+            "SDKMACHINE": "x86_64",
+            "step1": {
+                "shortname": "x86-64 lib32-img rpm",
+                "description": "qemux86-64 32bit multilib image with rpm",
+                "BBTARGETS": "lib32-core-image-minimal",
+                "SANITYTARGETS": "lib32-core-image-minimal:do_testimage",
+                "extravars": [
                     "TEST_SUITES = 'ping'",
                     "require conf/multilib.conf",
                     "MULTILIBS = 'multilib:lib32'",
                     "DEFAULTTUNE:virtclass-multilib-lib32 = 'x86'"
                 ]
             },
-            "step2" : {
-                "shortname" : "x86-64 lib32-img ipk",
-                "description" : "qemux86-64 32bit multilib image with ipk",
-                "PACKAGE_CLASSES" : "package_ipk",
-                "BBTARGETS" : "lib32-core-image-minimal",
-                "SANITYTARGETS" : "lib32-core-image-minimal:do_testimage",
-                "extravars" : [
+            "step2": {
+                "shortname": "x86-64 lib32-img ipk",
+                "description": "qemux86-64 32bit multilib image with ipk",
+                "PACKAGE_CLASSES": "package_ipk",
+                "BBTARGETS": "lib32-core-image-minimal",
+                "SANITYTARGETS": "lib32-core-image-minimal:do_testimage",
+                "extravars": [
                     "TEST_SUITES = 'ping'",
                     "require conf/multilib.conf",
                     "MULTILIBS = 'multilib:lib32'",
                     "DEFAULTTUNE:virtclass-multilib-lib32 = 'x86'"
                 ]
             },
-            "step3" : {
-                "shortname" : "x86-64 lib32 rpm",
-                "description" : "qemux86-64 64bit image and 32 bit multilibs with rpm",
-                "BBTARGETS" : "core-image-sato",
-                "SANITYTARGETS" : "core-image-sato:do_testimage",
-                "extravars" : [
+            "step3": {
+                "shortname": "x86-64 lib32 rpm",
+                "description": "qemux86-64 64bit image and 32 bit multilibs with rpm",
+                "BBTARGETS": "core-image-sato",
+                "SANITYTARGETS": "core-image-sato:do_testimage",
+                "extravars": [
                     "TEST_SUITES:append = ' multilib'",
                     "require conf/multilib.conf",
                     "MULTILIBS = 'multilib:lib32'",
@@ -596,13 +675,13 @@
                     "IMAGE_INSTALL:append = ' lib32-connman-gnome pango-module-basic-fc lib32-pango-module-basic-fc'"
                 ]
             },
-            "step4" : {
-                "shortname" : "x86-64 lib32 ipk",
-                "description" : "qemux86-64 64bit image and 32 bit multilibs with ipk",
-                "PACKAGE_CLASSES" : "package_ipk",
-                "BBTARGETS" : "core-image-sato",
-                "SANITYTARGETS" : "core-image-sato:do_testimage",
-                "extravars" : [
+            "step4": {
+                "shortname": "x86-64 lib32 ipk",
+                "description": "qemux86-64 64bit image and 32 bit multilibs with ipk",
+                "PACKAGE_CLASSES": "package_ipk",
+                "BBTARGETS": "core-image-sato",
+                "SANITYTARGETS": "core-image-sato:do_testimage",
+                "extravars": [
                     "TEST_SUITES:append = ' multilib'",
                     "require conf/multilib.conf",
                     "MULTILIBS = 'multilib:lib32'",
@@ -611,25 +690,25 @@
                     "IMAGE_INSTALL:append = ' lib32-connman-gnome pango-module-basic-fc lib32-pango-module-basic-fc'"
                 ]
             },
-            "step5" : {
-                "shortname" : "x86-64 lib64-img",
-                "description" : "x86 building 64bit multilib image",
-                "MACHINE" : "qemux86",
-                "SDKMACHINE" : "i686",
-                "BBTARGETS" : "lib64-core-image-sato lib64-core-image-sato-sdk",
-                "extravars" : [
+            "step5": {
+                "shortname": "x86-64 lib64-img",
+                "description": "x86 building 64bit multilib image",
+                "MACHINE": "qemux86",
+                "SDKMACHINE": "i686",
+                "BBTARGETS": "lib64-core-image-sato lib64-core-image-sato-sdk",
+                "extravars": [
                     "require conf/multilib.conf",
                     "MULTILIBS = 'multilib:lib64'",
                     "DEFAULTTUNE:virtclass-multilib-lib64 = 'x86-64'"
                 ]
             },
-            "step6" : {
-                "shortname" : "mip64 n32",
-                "description" : "qemumips64 image using n32 as default",
-                "MACHINE" : "qemumips64",
-                "BBTARGETS" : "core-image-minimal core-image-minimal:do_populate_sdk",
-                "SANITYTARGETS" : "core-image-minimal:do_testimage core-image-minimal:do_testsdk",
-                "extravars" : [
+            "step6": {
+                "shortname": "mip64 n32",
+                "description": "qemumips64 image using n32 as default",
+                "MACHINE": "qemumips64",
+                "BBTARGETS": "core-image-minimal core-image-minimal:do_populate_sdk",
+                "SANITYTARGETS": "core-image-minimal:do_testimage core-image-minimal:do_testsdk",
+                "extravars": [
                     "require conf/multilib.conf",
                     "MULTILIBS = 'multilib:lib64 multilib:lib32'",
                     "DEFAULTTUNE = 'mips64-n32'",
@@ -638,583 +717,645 @@
                 ]
             }
         },
-        "pkgman-rpm-non-rpm" : {
-            "MACHINE" : "qemux86",
-            "PACKAGE_CLASSES" : "package_rpm",
-            "BBTARGETS" : "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev",
-            "SANITYTARGETS" : "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage"
+        "pkgman-rpm-non-rpm": {
+            "MACHINE": "qemux86",
+            "PACKAGE_CLASSES": "package_rpm",
+            "BBTARGETS": "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev",
+            "SANITYTARGETS": "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage"
         },
-        "pkgman-deb-non-deb" : {
-            "MACHINE" : "qemux86",
-            "PACKAGE_CLASSES" : "package_deb",
-            "BBTARGETS" : "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev core-image-sato:do_populate_sdk",
-            "SANITYTARGETS" : "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage core-image-sato:do_testsdk"
+        "pkgman-deb-non-deb": {
+            "MACHINE": "qemux86",
+            "PACKAGE_CLASSES": "package_deb",
+            "BBTARGETS": "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev core-image-sato:do_populate_sdk",
+            "SANITYTARGETS": "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage core-image-sato:do_testsdk"
         },
-        "pkgman-non-rpm" : {
-            "MACHINE" : "qemux86",
-            "step1" : {
-                "PACKAGE_CLASSES" : "package_ipk",
-                "BBTARGETS" : "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev",
-                "SANITYTARGETS" : "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage"
+        "pkgman-non-rpm": {
+            "MACHINE": "qemux86",
+            "step1": {
+                "PACKAGE_CLASSES": "package_ipk",
+                "BBTARGETS": "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev",
+                "SANITYTARGETS": "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage"
             },
-            "step2" : {
-                "PACKAGE_CLASSES" : "package_deb",
-                "BBTARGETS" : "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev",
-                "SANITYTARGETS" : "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage"
+            "step2": {
+                "PACKAGE_CLASSES": "package_deb",
+                "BBTARGETS": "core-image-sato core-image-sato-sdk core-image-minimal core-image-minimal-dev",
+                "SANITYTARGETS": "core-image-minimal:do_testimage core-image-sato:do_testimage core-image-sato-sdk:do_testimage"
             }
         },
-        "poky-tiny" : {
-            "MACHINE" : "qemux86",
-            "DISTRO" : "poky-tiny",
-            "BBTARGETS" : "core-image-minimal"
+        "poky-tiny": {
+            "MACHINE": "qemux86",
+            "DISTRO": "poky-tiny",
+            "BBTARGETS": "core-image-minimal"
         },
-        "wic" : {
-            "BUILDINFO" : true,
-            "extravars" : [
+        "wic": {
+            "BUILDINFO": true,
+            "extravars": [
                 "IMAGE_FSTYPES += ' hddimg'",
                 "MACHINE_FEATURES:append = ' efi'"
             ],
-            "step1" : {
-                "MACHINE" : "qemux86",
-                "shortname" : "qemux86 wic",
-                "BBTARGETS" : "wic-tools core-image-sato",
-                "EXTRACMDS" : [
+            "step1": {
+                "MACHINE": "qemux86",
+                "shortname": "qemux86 wic",
+                "BBTARGETS": "wic-tools core-image-sato",
+                "EXTRACMDS": [
                     "wic create directdisk -e core-image-sato -o ${BUILDDIR}/tmp/deploy/wic_images/qemux86/directdisk/core-image-sato/",
                     "wic create directdisk-gpt -e core-image-sato -o ${BUILDDIR}/tmp/deploy/wic_images/qemux86/directdisk/core-image-sato/",
                     "wic create mkefidisk -e core-image-sato -o ${BUILDDIR}/tmp/deploy/wic_images/qemux86/directdisk/core-image-sato/"
                 ]
             },
-            "step2" : {
-                "MACHINE" : "genericx86",
-                "shortname" : "genericx86 wic",
-                "BBTARGETS" : "wic-tools core-image-sato",
-                "EXTRACMDS" : [
+            "step2": {
+                "MACHINE": "genericx86",
+                "shortname": "genericx86 wic",
+                "BBTARGETS": "wic-tools core-image-sato",
+                "EXTRACMDS": [
                     "wic create directdisk -e core-image-sato -o ${BUILDDIR}/tmp/deploy/wic_images/genericx86/directdisk/core-image-sato/",
                     "wic create directdisk-gpt -e core-image-sato -o ${BUILDDIR}/tmp/deploy/wic_images/genericx86/directdisk/core-image-sato/",
                     "wic create mkefidisk -e core-image-sato -o ${BUILDDIR}/tmp/deploy/wic_images/genericx86/directdisk/core-image-sato/"
                 ]
             },
-            "step3" : {
-                "MACHINE" : "qemux86-64",
-                "shortname" : "qemux86-64 wic",
-                "BBTARGETS" : "wic-tools core-image-sato",
-                "EXTRACMDS" : [
+            "step3": {
+                "MACHINE": "qemux86-64",
+                "shortname": "qemux86-64 wic",
+                "BBTARGETS": "wic-tools core-image-sato",
+                "EXTRACMDS": [
                     "wic create directdisk -e core-image-sato -o ${BUILDDIR}/tmp/deploy/wic_images/qemux86-64/directdisk/core-image-sato/",
                     "wic create directdisk-gpt -e core-image-sato -o ${BUILDDIR}/tmp/deploy/wic_images/qemux86-64/directdisk/core-image-sato/",
                     "wic create mkefidisk -e core-image-sato -o ${BUILDDIR}/tmp/deploy/wic_images/qemux86-64/directdisk/core-image-sato/"
                 ]
             },
-            "step4" : {
-                "MACHINE" : "genericx86-64",
-                "shortname" : "genericx86-64 wic",
-                "BBTARGETS" : "wic-tools core-image-sato",
-                "EXTRACMDS" : [
+            "step4": {
+                "MACHINE": "genericx86-64",
+                "shortname": "genericx86-64 wic",
+                "BBTARGETS": "wic-tools core-image-sato",
+                "EXTRACMDS": [
                     "wic create directdisk -e core-image-sato -o ${BUILDDIR}/tmp/deploy/wic_images/genericx86-64/directdisk/core-image-sato/",
                     "wic create directdisk-gpt -e core-image-sato -o ${BUILDDIR}/tmp/deploy/wic_images/genericx86-64/directdisk/core-image-sato/",
                     "wic create mkefidisk -e core-image-sato -o ${BUILDDIR}/tmp/deploy/wic_images/genericx86-64/directdisk/core-image-sato/"
                 ]
             }
         },
-        "buildtools" : {
-            "MACHINE" : "qemux86-64",
-            "extravars" : [
+        "buildtools": {
+            "MACHINE": "qemux86-64",
+            "extravars": [
                 "BUILD_REPRODUCIBLE_BINARIES_pn-nativesdk-python3 = '0'"
             ],
-            "step1" : {
-                "SDKMACHINE" : "x86_64",
-                "shortname" : "x86_64 tools",
-                "BBTARGETS" : "buildtools-tarball buildtools-extended-tarball uninative-tarball"
+            "step1": {
+                "SDKMACHINE": "x86_64",
+                "shortname": "x86_64 tools",
+                "BBTARGETS": "buildtools-tarball buildtools-extended-tarball uninative-tarball"
             },
-            "step2" : {
-                "SDKMACHINE" : "i686",
-                "shortname" : "i686 tools",
-                "BBTARGETS" : "uninative-tarball"
+            "step2": {
+                "SDKMACHINE": "i686",
+                "shortname": "i686 tools",
+                "BBTARGETS": "uninative-tarball"
             },
-            "step3" : {
-                "SDKMACHINE" : "aarch64",
-                "shortname" : "aarch64 tools",
-                "BBTARGETS" : "buildtools-tarball buildtools-extended-tarball uninative-tarball"
+            "step3": {
+                "SDKMACHINE": "aarch64",
+                "shortname": "aarch64 tools",
+                "BBTARGETS": "buildtools-tarball buildtools-extended-tarball uninative-tarball"
             }
         },
-        "build-appliance" : {
-            "MACHINE" : "qemux86-64",
-            "DLDIR" : "DL_DIR ?= '${TOPDIR}/downloads'",
-            "BUILDAPP_SRCREV" : ["SRCREV_pn-build-appliance-image = '@SRCREV@'", "PV:append:pn-build-appliance-image = '+git${SRCPV}'"],
-            "BBTARGETS" : "core-image-minimal core-image-full-cmdline",
-            "extravars" : [
+        "build-appliance": {
+            "MACHINE": "qemux86-64",
+            "DLDIR": "DL_DIR ?= '${TOPDIR}/downloads'",
+            "BUILDAPP_SRCREV": [
+                "SRCREV_pn-build-appliance-image = '@SRCREV@'",
+                "PV:append:pn-build-appliance-image = '+git${SRCPV}'"
+            ],
+            "BBTARGETS": "core-image-minimal core-image-full-cmdline",
+            "extravars": [
                 "SOURCE_MIRROR_FETCH = '1'",
                 "INHERIT += 'own-mirrors'",
                 "SOURCE_MIRROR_URL = 'file://${BASE_SHAREDDIR}/current_sources'"
             ],
-            "step1" : {
-                "shortname" : "Universe fetch",
-                "BBTARGETS" : "universe -k -c fetch"
+            "step1": {
+                "shortname": "Universe fetch",
+                "BBTARGETS": "universe -k -c fetch"
             },
-            "step2" : {
-                "shortname" : "BA image build",
-                "BBTARGETS" : "build-appliance-image"
+            "step2": {
+                "shortname": "BA image build",
+                "BBTARGETS": "build-appliance-image"
             }
         },
-        "non-gpl3" : {
-            "NEEDREPOS" : ["poky", "meta-gplv2"],
-            "MACHINE" : "qemux86",
-            "BBTARGETS" : "core-image-minimal core-image-full-cmdline",
-            "extravars" : [
+        "non-gpl3": {
+            "NEEDREPOS": [
+                "poky",
+                "meta-gplv2"
+            ],
+            "MACHINE": "qemux86",
+            "BBTARGETS": "core-image-minimal core-image-full-cmdline",
+            "extravars": [
                 "require conf/distro/include/disable-gplv3.inc"
             ],
-            "EXTRACMDS" : [
+            "EXTRACMDS": [
                 "../../yocto-autobuilder-helper/scripts/check-gplv3"
             ]
         },
-        "no-x11" : {
-            "MACHINE" : "qemux86-64",
-            "BBTARGETS" : "core-image-full-cmdline core-image-weston world",
-            "SANITYTARGETS" : "core-image-full-cmdline:do_testimage core-image-weston:do_testimage",
-            "extravars" : [
+        "no-x11": {
+            "MACHINE": "qemux86-64",
+            "BBTARGETS": "core-image-full-cmdline core-image-weston world",
+            "SANITYTARGETS": "core-image-full-cmdline:do_testimage core-image-weston:do_testimage",
+            "extravars": [
                 "DISTRO_FEATURES:remove = 'x11'"
             ],
-            "step1" : {
-                "shortname" : "Sysvinit weston"
+            "step1": {
+                "shortname": "Sysvinit weston"
             },
-            "step2" : {
-                "shortname" : "Systemd weston",
-                "extravars" : [
-                     "TEST_SUITES:append = ' systemd'",
-                     "DISTRO_FEATURES:append = ' pam systemd'",
-                     "VIRTUAL-RUNTIME_init_manager = 'systemd'",
-                     "DISTRO_FEATURES_BACKFILL_CONSIDERED = 'sysvinit'"
+            "step2": {
+                "shortname": "Systemd weston",
+                "extravars": [
+                    "TEST_SUITES:append = ' systemd'",
+                    "DISTRO_FEATURES:append = ' pam systemd'",
+                    "VIRTUAL-RUNTIME_init_manager = 'systemd'",
+                    "DISTRO_FEATURES_BACKFILL_CONSIDERED = 'sysvinit'"
                 ]
             }
         },
-        "musl-qemux86" : {
-            "MACHINE" : "qemux86",
-            "SDKMACHINE" : "x86_64",
-            "BBTARGETS" : "core-image-minimal core-image-full-cmdline core-image-sato-sdk world",
-            "SANITYTARGETS" : "core-image-minimal:do_testimage core-image-full-cmdline:do_testimage core-image-sato-sdk:do_testimage",
-            "extravars" : [
+        "musl-qemux86": {
+            "MACHINE": "qemux86",
+            "SDKMACHINE": "x86_64",
+            "BBTARGETS": "core-image-minimal core-image-full-cmdline core-image-sato-sdk world",
+            "SANITYTARGETS": "core-image-minimal:do_testimage core-image-full-cmdline:do_testimage core-image-sato-sdk:do_testimage",
+            "extravars": [
                 "TCLIBC = 'musl'"
             ]
         },
-        "musl-qemux86-64" : {
-            "MACHINE" : "qemux86-64",
-            "SDKMACHINE" : "x86_64",
-            "BUILDINFO" : true,
-            "BBTARGETS" : "core-image-minimal core-image-full-cmdline core-image-sato-sdk world",
-            "SANITYTARGETS" : "core-image-minimal:do_testimage core-image-full-cmdline:do_testimage core-image-sato-sdk:do_testimage",
-            "extravars" : [
+        "musl-qemux86-64": {
+            "MACHINE": "qemux86-64",
+            "SDKMACHINE": "x86_64",
+            "BUILDINFO": true,
+            "BBTARGETS": "core-image-minimal core-image-full-cmdline core-image-sato-sdk world",
+            "SANITYTARGETS": "core-image-minimal:do_testimage core-image-full-cmdline:do_testimage core-image-sato-sdk:do_testimage",
+            "extravars": [
                 "TCLIBC = 'musl'"
             ]
         },
-        "checkuri" : {
-            "MACHINE" : "qemux86",
-            "SDKMACHINE" : "x86_64",
-            "BBTARGETS" : "universe:do_checkuri",
-            "extravars" : [
+        "checkuri": {
+            "MACHINE": "qemux86",
+            "SDKMACHINE": "x86_64",
+            "BBTARGETS": "universe:do_checkuri",
+            "extravars": [
                 "SOURCE_MIRROR_FETCH = '1'",
                 "BB_NUMBER_THREADS = '1'",
                 "do_checkuri:pn-lsof = ''"
             ]
         },
-        "oe-selftest" : {
-            "TEMPLATE" : "selftest"
+        "oe-selftest": {
+            "TEMPLATE": "selftest"
         },
-        "oe-selftest-ubuntu" : {
-            "TEMPLATE" : "selftest"
+        "oe-selftest-ubuntu": {
+            "TEMPLATE": "selftest"
         },
-        "oe-selftest-debian" : {
-            "TEMPLATE" : "selftest"
+        "oe-selftest-debian": {
+            "TEMPLATE": "selftest"
         },
-        "oe-selftest-fedora" : {
-            "TEMPLATE" : "selftest"
+        "oe-selftest-fedora": {
+            "TEMPLATE": "selftest"
         },
-        "oe-selftest-opensuse" : {
-            "TEMPLATE" : "selftest"
+        "oe-selftest-opensuse": {
+            "TEMPLATE": "selftest"
         },
-        "oe-selftest-centos" : {
-            "TEMPLATE" : "selftest"
+        "oe-selftest-centos": {
+            "TEMPLATE": "selftest"
         },
-        "reproducible" : {
-            "TEMPLATE" : "reproducible"
+        "reproducible": {
+            "TEMPLATE": "reproducible"
         },
-        "reproducible-ubuntu" : {
-            "TEMPLATE" : "reproducible"
+        "reproducible-ubuntu": {
+            "TEMPLATE": "reproducible"
         },
-        "reproducible-debian" : {
-            "TEMPLATE" : "reproducible"
+        "reproducible-debian": {
+            "TEMPLATE": "reproducible"
         },
-        "reproducible-fedora" : {
-            "TEMPLATE" : "reproducible"
+        "reproducible-fedora": {
+            "TEMPLATE": "reproducible"
         },
-        "reproducible-opensuse" : {
-            "TEMPLATE" : "reproducible"
+        "reproducible-opensuse": {
+            "TEMPLATE": "reproducible"
         },
-        "reproducible-centos" : {
-            "TEMPLATE" : "reproducible"
+        "reproducible-centos": {
+            "TEMPLATE": "reproducible"
         },
-        "check-layer" : {
-            "NEEDREPOS" : ["poky", "meta-gplv2", "meta-mingw"],
-            "step1" : {
-                "EXTRACMDS" : ["yocto-check-layer-wrapper ../meta-poky"]
+        "check-layer": {
+            "NEEDREPOS": [
+                "poky",
+                "meta-gplv2",
+                "meta-mingw"
+            ],
+            "step1": {
+                "EXTRACMDS": [
+                    "yocto-check-layer-wrapper ../meta-poky"
+                ]
             },
-            "step2" : {
-                "EXTRACMDS" : ["yocto-check-layer-wrapper ../meta-yocto-bsp"]
+            "step2": {
+                "EXTRACMDS": [
+                    "yocto-check-layer-wrapper ../meta-yocto-bsp"
+                ]
             },
-            "step3" : {
-                "EXTRACMDS" : ["yocto-check-layer-wrapper ../meta-mingw"]
+            "step3": {
+                "EXTRACMDS": [
+                    "yocto-check-layer-wrapper ../meta-mingw"
+                ]
             },
-            "step4" : {
-                "EXTRACMDS" : ["yocto-check-layer-wrapper ../meta-gplv2"]
+            "step4": {
+                "EXTRACMDS": [
+                    "yocto-check-layer-wrapper ../meta-gplv2"
+                ]
             }
         },
-        "check-layer-nightly" : {
-            "NEEDREPOS" : ["poky", "meta-agl", "meta-arm", "meta-aws", "meta-intel", "meta-ti", "meta-openembedded", "meta-virtualization"],
-            "step1" : {
-                "shortname" : "Test meta-agl YP Compatibility",
-                "EXTRACMDS" : ["yocto-check-layer-wrapper ../meta-agl/meta-agl-core ../meta-agl/meta-netboot ../meta-agl/meta-pipewire --dependency ../meta-openembedded/meta-oe ../meta-openembedded/meta-networking ../meta-openembedded/meta-python --no-auto-dependency"]
+        "check-layer-nightly": {
+            "NEEDREPOS": [
+                "poky",
+                "meta-agl",
+                "meta-arm",
+                "meta-aws",
+                "meta-intel",
+                "meta-ti",
+                "meta-openembedded",
+                "meta-virtualization"
+            ],
+            "step1": {
+                "shortname": "Test meta-agl YP Compatibility",
+                "EXTRACMDS": [
+                    "yocto-check-layer-wrapper ../meta-agl/meta-agl-core ../meta-agl/meta-netboot ../meta-agl/meta-pipewire --dependency ../meta-openembedded/meta-oe ../meta-openembedded/meta-networking ../meta-openembedded/meta-python --no-auto-dependency"
+                ]
             },
-            "step2" : {
-                "shortname" : "Test meta-arm YP Compatibility",
-                "MACHINE" : "qemuarm64",
-                "EXTRACMDS" : ["yocto-check-layer-wrapper ../meta-arm/meta-arm ../meta-arm/meta-arm-toolchain ../meta-arm/meta-arm-bsp ../meta-arm/meta-gem5 ../meta-arm/meta-arm-autonomy --dependency ../meta-openembedded/meta-oe ../meta-openembedded/meta-networking ../meta-openembedded/meta-python ../meta-poky ../meta-openembedded/meta-filesystems ../meta-virtualization --no-auto-dependency"]
+            "step2": {
+                "shortname": "Test meta-arm YP Compatibility",
+                "MACHINE": "qemuarm64",
+                "EXTRACMDS": [
+                    "yocto-check-layer-wrapper ../meta-arm/meta-arm ../meta-arm/meta-arm-toolchain ../meta-arm/meta-arm-bsp ../meta-arm/meta-gem5 ../meta-arm/meta-arm-autonomy --dependency ../meta-openembedded/meta-oe ../meta-openembedded/meta-networking ../meta-openembedded/meta-python ../meta-poky ../meta-openembedded/meta-filesystems ../meta-virtualization --no-auto-dependency"
+                ]
             },
-            "step3" : {
-                "shortname" : "Test meta-aws YP Compatibility",
-                "EXTRACMDS" : ["yocto-check-layer-wrapper ../meta-aws --dependency ../meta-openembedded/meta-oe ../meta-openembedded/meta-networking ../meta-openembedded/meta-python -n --no-auto-dependency"]
+            "step3": {
+                "shortname": "Test meta-aws YP Compatibility",
+                "EXTRACMDS": [
+                    "yocto-check-layer-wrapper ../meta-aws --dependency ../meta-openembedded/meta-oe ../meta-openembedded/meta-networking ../meta-openembedded/meta-python -n --no-auto-dependency"
+                ]
             },
-            "step4" : {
-                "shortname" : "Test meta-intel YP Compatibility",
-                "EXTRACMDS" : ["yocto-check-layer-wrapper ../meta-intel --no-auto-dependency"]
+            "step4": {
+                "shortname": "Test meta-intel YP Compatibility",
+                "EXTRACMDS": [
+                    "yocto-check-layer-wrapper ../meta-intel --no-auto-dependency"
+                ]
             },
-            "step5" : {
-                "shortname" : "Test meta-ti YP Compatibility",
-                "EXTRACMDS" : ["yocto-check-layer-wrapper ../meta-ti --dependency ../meta-arm --no-auto-dependency"]
+            "step5": {
+                "shortname": "Test meta-ti YP Compatibility",
+                "EXTRACMDS": [
+                    "yocto-check-layer-wrapper ../meta-ti --dependency ../meta-arm --no-auto-dependency"
+                ]
             },
-            "step6" : {
-                "shortname" : "Test meta-oe YP Compatibility",
-                "EXTRACMDS" : ["yocto-check-layer-wrapper ../meta-openembedded --no-auto-dependency"]
+            "step6": {
+                "shortname": "Test meta-oe YP Compatibility",
+                "EXTRACMDS": [
+                    "yocto-check-layer-wrapper ../meta-openembedded --no-auto-dependency"
+                ]
             },
-            "step7" : {
-                "shortname" : "Test meta-virtualization YP Compatibility",
-                "EXTRACMDS" : ["yocto-check-layer-wrapper ../meta-virtualization --dependency ../meta-openembedded/meta-oe ../meta-openembedded/meta-networking ../meta-openembedded/meta-python ../meta-openembedded/meta-filesystems --no-auto-dependency"]
+            "step7": {
+                "shortname": "Test meta-virtualization YP Compatibility",
+                "EXTRACMDS": [
+                    "yocto-check-layer-wrapper ../meta-virtualization --dependency ../meta-openembedded/meta-oe ../meta-openembedded/meta-networking ../meta-openembedded/meta-python ../meta-openembedded/meta-filesystems --no-auto-dependency"
+                ]
             }
         },
-        "meta-mingw" : {
-            "NEEDREPOS" : ["poky", "meta-mingw"],
-            "MACHINE" : "qemux86",
-            "BBTARGETS" : "core-image-mingw-sdktest:do_populate_sdk",
-            "ADDLAYER" : ["${BUILDDIR}/../meta-mingw"],
-            "step1" : {
-                "SDKMACHINE" : "i686-mingw32"
+        "meta-mingw": {
+            "NEEDREPOS": [
+                "poky",
+                "meta-mingw"
+            ],
+            "MACHINE": "qemux86",
+            "BBTARGETS": "core-image-mingw-sdktest:do_populate_sdk",
+            "ADDLAYER": [
+                "${BUILDDIR}/../meta-mingw"
+            ],
+            "step1": {
+                "SDKMACHINE": "i686-mingw32"
             },
-            "step2" : {
-                "SDKMACHINE" : "x86_64-mingw32",
-                "SANITYTARGETS" : "core-image-mingw-sdktest:do_testsdk"
+            "step2": {
+                "SDKMACHINE": "x86_64-mingw32",
+                "SANITYTARGETS": "core-image-mingw-sdktest:do_testsdk"
             }
         },
-        "meta-oe" : {
-            "NEEDREPOS" : ["poky", "meta-openembedded"],
-            "MACHINE" : "qemux86-64",
-            "step1" : {
-                "shortname" : "Test meta-oe YP Compatibility",
-                "EXTRACMDS" : ["yocto-check-layer-wrapper ../meta-openembedded"]
+        "meta-oe": {
+            "NEEDREPOS": [
+                "poky",
+                "meta-openembedded"
+            ],
+            "MACHINE": "qemux86-64",
+            "step1": {
+                "shortname": "Test meta-oe YP Compatibility",
+                "EXTRACMDS": [
+                    "yocto-check-layer-wrapper ../meta-openembedded"
+                ]
             },
-            "step2" : {
-                "ADDLAYER" : [
+            "step2": {
+                "ADDLAYER": [
                     "${BUILDDIR}/../meta-openembedded/meta-oe",
                     "${BUILDDIR}/../meta-openembedded/meta-python",
                     "${BUILDDIR}/../meta-openembedded/meta-networking",
                     "${BUILDDIR}/../meta-openembedded/meta-filesystems"
                 ],
-                "BBTARGETS" : "world -k"
+                "BBTARGETS": "world -k"
             }
         },
-        "meta-virt" : {
-            "NEEDREPOS" : ["poky", "meta-openembedded", "meta-virtualization"],
-            "MACHINE" : "qemux86-64",
-            "BBTARGETS" : "world -k",
-            "ADDLAYER" : [
+        "meta-virt": {
+            "NEEDREPOS": [
+                "poky",
+                "meta-openembedded",
+                "meta-virtualization"
+            ],
+            "MACHINE": "qemux86-64",
+            "BBTARGETS": "world -k",
+            "ADDLAYER": [
                 "${BUILDDIR}/../meta-openembedded/meta-oe",
                 "${BUILDDIR}/../meta-openembedded/meta-python",
                 "${BUILDDIR}/../meta-openembedded/meta-networking",
                 "${BUILDDIR}/../meta-openembedded/meta-filesystems",
                 "${BUILDDIR}/../meta-virtualization"
             ],
-            "extravars" : [
+            "extravars": [
                 "DISTRO_FEATURES:append = ' virtualization'"
             ]
         },
-        "qa-extras" : {
-            "MACHINE" : "qemux86-64",
-            "step1" : {
-                "shortname" : "Readonly rootfs",
-                "BBTARGETS" : "core-image-minimal",
-                "SANITYTARGETS" : "core-image-minimal:do_testimage",
-                "extravars" : [
+        "qa-extras": {
+            "MACHINE": "qemux86-64",
+            "step1": {
+                "shortname": "Readonly rootfs",
+                "BBTARGETS": "core-image-minimal",
+                "SANITYTARGETS": "core-image-minimal:do_testimage",
+                "extravars": [
                     "IMAGE_FEATURES:append = ' read-only-rootfs'"
                 ]
             },
-            "step2" : {
-                "shortname" : "ROOT_HOME testing",
-                "BBTARGETS" : "core-image-minimal",
-                "SANITYTARGETS" : "core-image-minimal:do_testimage",
-                "extravars" : [
+            "step2": {
+                "shortname": "ROOT_HOME testing",
+                "BBTARGETS": "core-image-minimal",
+                "SANITYTARGETS": "core-image-minimal:do_testimage",
+                "extravars": [
                     "ROOT_HOME = '/root'"
                 ]
             },
-            "step3" : {
-                "shortname" : "Full eSDK type",
-                "SDKMACHINE" : "x86_64",
-                "BBTARGETS" : "core-image-minimal:do_populate_sdk_ext",
-                "extravars" : [
+            "step3": {
+                "shortname": "Full eSDK type",
+                "SDKMACHINE": "x86_64",
+                "BBTARGETS": "core-image-minimal:do_populate_sdk_ext",
+                "extravars": [
                     "SDK_EXT_TYPE = 'full'"
                 ]
             },
-            "step4" : {
-                "shortname" : "Prep locked-sigs test",
-                "SDKMACHINE" : "x86_64",
-                "BBTARGETS" : "core-image-sato core-image-sato:do_populate_sdk_ext"
+            "step4": {
+                "shortname": "Prep locked-sigs test",
+                "SDKMACHINE": "x86_64",
+                "BBTARGETS": "core-image-sato core-image-sato:do_populate_sdk_ext"
             },
-            "step5" : {
-                "shortname" : "Prep #2 locked-sigs test",
-                "SDKMACHINE" : "x86_64",
-                "BBTARGETS" : "core-image-sato -S none",
-                "EXTRACMDS" : ["${SCRIPTSDIR}/../janitor/clobberdir ${BUILDDIR}/../build/tmp"]
+            "step5": {
+                "shortname": "Prep #2 locked-sigs test",
+                "SDKMACHINE": "x86_64",
+                "BBTARGETS": "core-image-sato -S none",
+                "EXTRACMDS": [
+                    "${SCRIPTSDIR}/../janitor/clobberdir ${BUILDDIR}/../build/tmp"
+                ]
             },
-            "step6" : {
-                "shortname" : "Test locked-sigs image",
-                "SDKMACHINE" : "x86_64",
-                "BBTARGETS" : "core-image-sato",
-                "extravars" : [
+            "step6": {
+                "shortname": "Test locked-sigs image",
+                "SDKMACHINE": "x86_64",
+                "BBTARGETS": "core-image-sato",
+                "extravars": [
                     "TMPDIR = '${TOPDIR}/newtmp'",
                     "require ../locked-sigs.inc"
                 ]
             },
-            "step7" : {
-                "shortname" : "Test locked-sigs eSDK",
-                "SDKMACHINE" : "x86_64",
-                "BBTARGETS" : "core-image-sato:do_populate_sdk_ext",
-                "extravars" : [
+            "step7": {
+                "shortname": "Test locked-sigs eSDK",
+                "SDKMACHINE": "x86_64",
+                "BBTARGETS": "core-image-sato:do_populate_sdk_ext",
+                "extravars": [
                     "TMPDIR = '${TOPDIR}/sdktmp'"
                 ]
             }
         },
-        "qa-extras2" : {
-            "MACHINE" : "qemux86-64",
-            "step1" : {
-                "shortname" : "Test logrotate",
-                "BBTARGETS" : "core-image-sato",
-                "SANITYTARGETS" : "core-image-sato:do_testimage",
-                "extravars" : [
+        "qa-extras2": {
+            "MACHINE": "qemux86-64",
+            "step1": {
+                "shortname": "Test logrotate",
+                "BBTARGETS": "core-image-sato",
+                "SANITYTARGETS": "core-image-sato:do_testimage",
+                "extravars": [
                     "IMAGE_INSTALL:append = ' logrotate'",
                     "TEST_SUITES:append = ' logrotate'"
                 ]
             },
-            "step2" : {
-                "BBTARGETS" : "core-image-sato",
-                "SANITYTARGETS" : "core-image-sato:do_testimage",
-                "extravars" : [
+            "step2": {
+                "BBTARGETS": "core-image-sato",
+                "SANITYTARGETS": "core-image-sato:do_testimage",
+                "extravars": [
                     "DISTRO_FEATURES:append = ' pam'",
                     "TEST_SUITES:append = ' pam'"
                 ]
             },
-            "step3" : {
-                "shortname" : "Test skeletoninit",
-                "BBTARGETS" : "core-image-sato",
-                "SANITYTARGETS" : "core-image-sato:do_testimage",
-                "extravars" : [
+            "step3": {
+                "shortname": "Test skeletoninit",
+                "BBTARGETS": "core-image-sato",
+                "SANITYTARGETS": "core-image-sato:do_testimage",
+                "extravars": [
                     "IMAGE_INSTALL:append = ' service hello-mod'",
                     "TEST_SUITES:append = ' skeletoninit'"
                 ],
-                "ADDLAYER" : ["${BUILDDIR}/../meta-skeleton"]
+                "ADDLAYER": [
+                    "${BUILDDIR}/../meta-skeleton"
+                ]
             },
-            "step4" : {
-                "shortname" : "Systemd with sysvinit compat",
-                "BBTARGETS" : "core-image-sato",
-                "SANITYTARGETS" : "core-image-sato:do_testimage",
-                "extravars" : [
+            "step4": {
+                "shortname": "Systemd with sysvinit compat",
+                "BBTARGETS": "core-image-sato",
+                "SANITYTARGETS": "core-image-sato:do_testimage",
+                "extravars": [
                     "DISTRO_FEATURES:append = ' systemd'",
                     "VIRTUAL-RUNTIME_init_manager = 'systemd'",
                     "TEST_SUITES:append = ' systemd'"
                 ]
             },
-            "step5" : {
-                "shortname" : "Sysvinit with systemd",
-                "BBTARGETS" : "core-image-sato",
-                "SANITYTARGETS" : "core-image-sato:do_testimage",
-                "extravars" : [
+            "step5": {
+                "shortname": "Sysvinit with systemd",
+                "BBTARGETS": "core-image-sato",
+                "SANITYTARGETS": "core-image-sato:do_testimage",
+                "extravars": [
                     "DISTRO_FEATURES:append = ' systemd'",
                     "VIRTUAL-RUNTIME_init_manager = 'sysvinit'"
                 ]
             },
-            "step6" : {
-                "shortname" : "Systemd",
-                "BBTARGETS" : "core-image-sato",
-                "SANITYTARGETS" : "core-image-sato:do_testimage",
-                "extravars" : [
+            "step6": {
+                "shortname": "Systemd",
+                "BBTARGETS": "core-image-sato",
+                "SANITYTARGETS": "core-image-sato:do_testimage",
+                "extravars": [
                     "TEST_SUITES:append = ' systemd'",
                     "DISTRO_FEATURES:append = ' systemd'",
                     "VIRTUAL-RUNTIME_init_manager = 'systemd'",
                     "DISTRO_FEATURES_BACKFILL_CONSIDERED = 'sysvinit'"
                 ]
             },
-            "step7" : {
-                "shortname" : "Mesa gallium-llvm",
-                "BBTARGETS" : "core-image-sato",
-                "SANITYTARGETS" : "core-image-sato:do_testimage",
-                "extravars" : [
+            "step7": {
+                "shortname": "Mesa gallium-llvm",
+                "BBTARGETS": "core-image-sato",
+                "SANITYTARGETS": "core-image-sato:do_testimage",
+                "extravars": [
                     "PACKAGECONFIG:append:x86-64:pn-mesa = ' gallium-llvm gallium r600'"
                 ]
-
             }
         },
-        "eclipse-plugin-neon" : {
-            "NEEDREPOS" : ["eclipse-poky-neon"],
-            "WRITECONFIG" : false,
-            "SENDERRORS" : false,
-            "EXTRAPLAINCMDS" : [
+        "eclipse-plugin-neon": {
+            "NEEDREPOS": [
+                "eclipse-poky-neon"
+            ],
+            "WRITECONFIG": false,
+            "SENDERRORS": false,
+            "EXTRAPLAINCMDS": [
                 "cd scripts; ./setup.sh; ECLIPSE_HOME=`pwd`/eclipse/ ./build.sh neon-master master development"
             ]
-
         },
-        "eclipse-plugin-oxygen" : {
-            "NEEDREPOS" : ["eclipse-poky-oxygen"],
-            "WRITECONFIG" : false,
-            "SENDERRORS" : false,
-            "EXTRAPLAINCMDS" : [
+        "eclipse-plugin-oxygen": {
+            "NEEDREPOS": [
+                "eclipse-poky-oxygen"
+            ],
+            "WRITECONFIG": false,
+            "SENDERRORS": false,
+            "EXTRAPLAINCMDS": [
                 "cd scripts; ./setup.sh; ECLIPSE_HOME=`pwd`/eclipse/ ./build.sh oxygen-master master development"
             ]
         },
-        "buildperf-ubuntu1604" : {
-            "TEMPLATE" : "buildperf"
+        "buildperf-ubuntu1604": {
+            "TEMPLATE": "buildperf"
         },
-        "buildperf-centos7" : {
-            "TEMPLATE" : "buildperf"
+        "buildperf-centos7": {
+            "TEMPLATE": "buildperf"
         },
-        "auh" : {
-            "EXTRAPLAINCMDS" : [
+        "auh": {
+            "EXTRAPLAINCMDS": [
                 "${SCRIPTSDIR}/setup-auh ${HELPERBUILDDIR}; ${SCRIPTSDIR}/run-auh ${HELPERBUILDDIR}"
             ]
         },
-        "a-quick" : {
-            "TEMPLATE" : "trigger-build"
+        "a-quick": {
+            "TEMPLATE": "trigger-build"
         },
-        "a-quick-posttrigger" : {
-            "TEMPLATE" : "trigger-build-posttrigger"
+        "a-quick-posttrigger": {
+            "TEMPLATE": "trigger-build-posttrigger"
         },
-        "a-full" : {
-            "TEMPLATE" : "trigger-build"
+        "a-full": {
+            "TEMPLATE": "trigger-build"
         },
-        "a-full-posttrigger" : {
-            "TEMPLATE" : "trigger-build-posttrigger"
+        "a-full-posttrigger": {
+            "TEMPLATE": "trigger-build-posttrigger"
         }
     },
-    "repo-defaults" : {
-        "poky" : {
-            "url" : "git://git.yoctoproject.org/poky",
-            "branch" : "master",
-            "revision" : "HEAD",
-            "checkout-dirname" : ".",
-            "no-layer-add" : true,
-            "call-init" : true
+    "repo-defaults": {
+        "poky": {
+            "url": "git://git.yoctoproject.org/poky",
+            "branch": "master",
+            "revision": "HEAD",
+            "checkout-dirname": ".",
+            "no-layer-add": true,
+            "call-init": true
         },
-	"mukube" : { 
-	    "url" : "https://github.com/distributed-technologies/mukube.git",
-	    "branch" : "feature/yocto-switch",
-	    "revision" : "HEAD",
-	    "no-layer-add" : true
-	},
-        "meta-intel" : {
-            "url" : "git://git.yoctoproject.org/meta-intel",
-            "branch" : "master",
-            "revision" : "HEAD",
-            "no-layer-add" : true
+        "mukube": {
+            "url": "https://github.com/distributed-technologies/mukube.git",
+            "branch": "feature/yocto-switch",
+            "revision": "HEAD",
+            "no-layer-add": true
         },
-        "oecore" : {"url" : "git://git.openembedded.org/openembedded-core",
-            "branch" : "master",
-            "revision" : "HEAD",
-            "checkout-dirname" : ".",
-            "no-layer-add" : true,
-            "call-init" : true
+        "meta-intel": {
+            "url": "git://git.yoctoproject.org/meta-intel",
+            "branch": "master",
+            "revision": "HEAD",
+            "no-layer-add": true
         },
-        "bitbake" : {
-            "url" : "git://git.openembedded.org/bitbake",
-            "branch" : "master",
-            "revision" : "HEAD",
-            "no-layer-add" : true
+        "oecore": {
+            "url": "git://git.openembedded.org/openembedded-core",
+            "branch": "master",
+            "revision": "HEAD",
+            "checkout-dirname": ".",
+            "no-layer-add": true,
+            "call-init": true
         },
-        "eclipse-poky-neon" : {
-            "url" : "git://git.yoctoproject.org/eclipse-yocto",
-            "branch" : "neon-master",
-            "revision" : "HEAD",
-            "checkout-dirname" : ".",
-            "no-layer-add" : true
+        "bitbake": {
+            "url": "git://git.openembedded.org/bitbake",
+            "branch": "master",
+            "revision": "HEAD",
+            "no-layer-add": true
         },
-        "eclipse-poky-oxygen" : {
-            "url" : "git://git.yoctoproject.org/eclipse-yocto",
-            "branch" : "oxygen-master",
-            "revision" : "HEAD",
-            "checkout-dirname" : ".",
-            "no-layer-add" : true
+        "eclipse-poky-neon": {
+            "url": "git://git.yoctoproject.org/eclipse-yocto",
+            "branch": "neon-master",
+            "revision": "HEAD",
+            "checkout-dirname": ".",
+            "no-layer-add": true
         },
-        "meta-mingw" : {
-            "url" : "git://git.yoctoproject.org/meta-mingw",
-            "branch" : "master",
-            "revision" : "HEAD"
+        "eclipse-poky-oxygen": {
+            "url": "git://git.yoctoproject.org/eclipse-yocto",
+            "branch": "oxygen-master",
+            "revision": "HEAD",
+            "checkout-dirname": ".",
+            "no-layer-add": true
         },
-        "meta-gplv2" : {
-            "url" : "git://git.yoctoproject.org/meta-gplv2",
-            "branch" : "master",
-            "revision" : "HEAD"
+        "meta-mingw": {
+            "url": "git://git.yoctoproject.org/meta-mingw",
+            "branch": "master",
+            "revision": "HEAD"
         },
-        "meta-virtualization" : {
-            "url" : "git://git.yoctoproject.org/meta-virtualization",
-            "branch" : "master",
-            "revision" : "HEAD",
-            "no-layer-add" : true
+        "meta-gplv2": {
+            "url": "git://git.yoctoproject.org/meta-gplv2",
+            "branch": "master",
+            "revision": "HEAD"
         },
-        "meta-openembedded" : {
-            "url" : "git://git.openembedded.org/meta-openembedded",
-            "branch" : "master",
-            "revision" : "HEAD",
-            "no-layer-add" : true
+        "meta-virtualization": {
+            "url": "git://git.yoctoproject.org/meta-virtualization",
+            "branch": "master",
+            "revision": "HEAD",
+            "no-layer-add": true
         },
-        "meta-arm" : {
-            "url" : "git://git.yoctoproject.org/meta-arm",
-            "branch" : "master",
-            "revision" : "HEAD",
-            "no-layer-add" : true
+        "meta-openembedded": {
+            "url": "git://git.openembedded.org/meta-openembedded",
+            "branch": "master",
+            "revision": "HEAD",
+            "no-layer-add": true
+        },
+        "meta-arm": {
+            "url": "git://git.yoctoproject.org/meta-arm",
+            "branch": "master",
+            "revision": "HEAD",
+            "no-layer-add": true
         },
         "meta-agl": {
-            "url" : "https://git.automotivelinux.org/AGL/meta-agl",
-            "branch" : "next",
-            "revision" : "HEAD",
-            "no-layer-add" : true
+            "url": "https://git.automotivelinux.org/AGL/meta-agl",
+            "branch": "next",
+            "revision": "HEAD",
+            "no-layer-add": true
         },
         "meta-aws": {
-            "url" : "https://github.com/aws/meta-aws.git",
-            "branch" : "master",
-            "revision" : "HEAD",
-            "no-layer-add" : true
+            "url": "https://github.com/aws/meta-aws.git",
+            "branch": "master",
+            "revision": "HEAD",
+            "no-layer-add": true
         },
-        "meta-ti" : {
-            "url" : "git://git.yoctoproject.org/meta-ti",
-            "branch" : "master",
-            "revision" : "HEAD",
-            "no-layer-add" : true
+        "meta-ti": {
+            "url": "git://git.yoctoproject.org/meta-ti",
+            "branch": "master",
+            "revision": "HEAD",
+            "no-layer-add": true
         },
-        "meta-security" : {
-            "url" : "git://git.yoctoproject.org/meta-security",
-            "branch" : "master",
-            "revision" : "HEAD",
-            "no-layer-add" : true
+        "meta-security": {
+            "url": "git://git.yoctoproject.org/meta-security",
+            "branch": "master",
+            "revision": "HEAD",
+            "no-layer-add": true
         }
     },
-    "buildtools" : {
-        "debian8*" : "${BUILDTOOLS_URL}",
-        "debian9*" : "${BUILDTOOLS_URL}",
-        "centos7*" : "${BUILDTOOLS_URL}",
-        "ubuntu1604*" : "${BUILDTOOLS_URL}",
-        "perf-centos7*" : "${BUILDTOOLS_URL}",
-        "perf-ubuntu1604*" : "${BUILDTOOLS_URL}"
+    "buildtools": {
+        "debian8*": "${BUILDTOOLS_URL}",
+        "debian9*": "${BUILDTOOLS_URL}",
+        "centos7*": "${BUILDTOOLS_URL}",
+        "ubuntu1604*": "${BUILDTOOLS_URL}",
+        "perf-centos7*": "${BUILDTOOLS_URL}",
+        "perf-ubuntu1604*": "${BUILDTOOLS_URL}"
     }
 }
