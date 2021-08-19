@@ -1274,12 +1274,6 @@
             "revision": "HEAD",
             "no-layer-add": true
         },
-        "meta-security": {
-            "url": "https://git.yoctoproject.org/cgit/cgit.cgi/meta-security/",
-            "branch": "master",
-            "revision": "HEAD",
-            "no-layer-add": true
-        },
         "poky": {
             "url": "git://git.yoctoproject.org/poky",
             "branch": "master",
