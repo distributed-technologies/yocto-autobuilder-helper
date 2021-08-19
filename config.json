@@ -1269,7 +1269,7 @@
     },
     "repo-defaults": {
         "meta-selinux": {
-            "url": "https://git.yoctoproject.org/cgit/cgit.cgi/meta-selinux/",
+            "url": "https://git.yoctoproject.org/cgit/cgit.cgi/meta-selinux",
             "branch": "master",
             "revision": "HEAD",
             "no-layer-add": true
