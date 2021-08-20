@@ -305,7 +305,7 @@
                 "${BUILDDIR}/../meta-security",
                 "${BUILDDIR}/../meta-selinux"
             ],
-            "BBTARGETS": "mukube-minimal"
+            "BBTARGETS": "core-image-minimal"
         },
         "qemuarm-oecore": {
             "NEEDREPOS": [
