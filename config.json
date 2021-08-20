@@ -305,7 +305,7 @@
                 "${BUILDDIR}/../meta-selinux",
                 "${BUILDDIR}/../mukube/meta-k8s-setup"
             ],
-            "BBTARGETS": "core-image-minimal"
+            "BBTARGETS": "mukube-minimal"
         },
         "qemuarm-oecore": {
             "NEEDREPOS": [
