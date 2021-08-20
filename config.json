@@ -291,29 +291,21 @@
             ],
             "MACHINE": "genericx86-64",
             "DISTRO": "None",
-            "step1": {
-                "ADDLAYER": [
-                    "${BUILDDIR}/../mukube/meta-k8s-setup",
-                    "${BUILDDIR}/../poky/meta",
-                    "${BUILDDIR}/../poky/meta-poky",
-                    "${BUILDDIR}/../poky/meta-yocto-bsp",
-                    "${BUILDDIR}/../meta-openembedded/meta-oe",
-                    "${BUILDDIR}/../meta-openembedded/meta-filesystems",
-                    "${BUILDDIR}/../meta-openembedded/meta-python",
-                    "${BUILDDIR}/../meta-openembedded/meta-networking",
-                    "${BUILDDIR}/../meta-openembedded/meta-perl"
-                ]
-            },
-            "step2": {
-                "ADDLAYER": [
-                    "${BUILDDIR}/../meta-virtualization",
-                    "${BUILDDIR}/../meta-security",
-                    "${BUILDDIR}/../meta-selinux"
-                ]
-            },
-            "step3": {
-                "BBTARGETS": "mukube-minimal"
-            }
+            "ADDLAYER": [
+                "${BUILDDIR}/../mukube/meta-k8s-setup",
+                "${BUILDDIR}/../poky/meta",
+                "${BUILDDIR}/../poky/meta-poky",
+                "${BUILDDIR}/../poky/meta-yocto-bsp",
+                "${BUILDDIR}/../meta-openembedded/meta-oe",
+                "${BUILDDIR}/../meta-openembedded/meta-filesystems",
+                "${BUILDDIR}/../meta-openembedded/meta-python",
+                "${BUILDDIR}/../meta-openembedded/meta-networking",
+                "${BUILDDIR}/../meta-openembedded/meta-perl",
+                "${BUILDDIR}/../meta-virtualization",
+                "${BUILDDIR}/../meta-security",
+                "${BUILDDIR}/../meta-selinux"
+            ],
+            "BBTARGETS": "mukube-minimal"
         },
         "qemuarm-oecore": {
             "NEEDREPOS": [
