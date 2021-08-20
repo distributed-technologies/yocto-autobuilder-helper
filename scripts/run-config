@@ -348,5 +348,5 @@ if args.json_outputfile:
     with open(args.json_outputfile, "w") as f:
         json.dump(jsonconfig, f, indent=4, sort_keys=True)
 
-sys.exit(0)
+sys.exit(1)
 
