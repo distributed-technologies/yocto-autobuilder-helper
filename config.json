@@ -1296,7 +1296,7 @@
         },
         "bitbake": {
             "url": "git://git.openembedded.org/bitbake",
-            "branch": "hardknott",
+            "branch": "master",
             "revision": "HEAD",
             "no-layer-add": true
         },
